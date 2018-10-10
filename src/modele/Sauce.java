@@ -6,6 +6,5 @@ public class Sauce extends Produit {
 		super(nom, prix, id);
 		// TODO Auto-generated constructor stub
 	}
-	
-	
+
 }

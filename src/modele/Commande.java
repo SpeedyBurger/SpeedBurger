@@ -4,21 +4,19 @@ import java.util.Vector;
 
 public class Commande {
 
-  protected int id;
+	protected int id;
 
-public int getId() {
-	return id;
-}
+	public int getId() {
+		return id;
+	}
 
-public void setId(int id) {
-	this.id = id;
-}
+	public void setId(int id) {
+		this.id = id;
+	}
 
-public Commande(int id) {
-	super();
-	this.id = id;
-}
-
-  
+	public Commande(int id) {
+		super();
+		this.id = id;
+	}
 
 }
