@@ -1,17 +1,27 @@
 package vue;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.Font;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+
+import modele.Boisson;
+import modele.Salade;
+import modele.Sandwich;
+
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JRadioButton;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JList;
+import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 
 public class Commande extends JFrame {
 
@@ -45,6 +55,32 @@ public class Commande extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		DefaultListModel listModel=new DefaultListModel();
+		
+		Boisson coca=new Boisson("Coca",1,1,"");
+		Boisson fanta=new Boisson("Fanta",1,2,"");
+		Boisson sprite=new Boisson("Sprite",1,3,"");
+		Boisson eau=new Boisson("Eau",1,4,"");
+		Boisson biere=new Boisson("Bière",1,5,"");
+		Boisson cafe=new Boisson("Café",1,6,"");
+		
+		Sandwich hamburger=new Sandwich("Hamburger",2,1,"");
+		Sandwich fastburger=new Sandwich("FastBurger",2,2,"");
+		Sandwich speedyburger=new Sandwich("SpeedyBurger",2,3,"");
+		Sandwich baconburger=new Sandwich("BaconBurger",2,4,"");
+		Sandwich chickenrun=new Sandwich("ChickenRun",2,5,"");
+		Sandwich fishspeed=new Sandwich("FishSpeed",2,6,"");
+		Sandwich chickenstick4=new Sandwich("Chicken Stick x4",2,7,"");
+		Sandwich chickenstick7=new Sandwich("Chicken Stick x7",2,8,"");
+		
+		Salade salacleo=new Salade("Salade Cléopâtre",2,1);
+		Salade salachef=new Salade("Salade Chef",2,2);
+		Salade salapoulet=new Salade("Salade Poulet",2,3);
+		Salade salagrecque=new Salade("Salade Grecque",2,4);
+		
+	
+		
 		
 		JButton btnMhamburger = new JButton("<HTML><BODY>Menu<Br> Hamburger</BODY></HTML>");
 		btnMhamburger.setBounds(10, 65, 150, 90);
@@ -86,71 +122,153 @@ public class Commande extends JFrame {
 		
 		
 		JButton btncoca = new JButton("Coca");
+		btncoca.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				listModel.addElement(coca.getNom());
+			}
+		});
 		btncoca.setBounds(10, 180, 120, 90);
 		btncoca.setBackground(Color.CYAN);
 		contentPane.add(btncoca);
 		
 		JButton btnfanta = new JButton("Fanta");
+		btnfanta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				listModel.addElement(fanta.getNom());
+			}
+		});
 		btnfanta.setBounds(135, 180,120, 90);
 		btnfanta.setBackground(Color.CYAN);
 		contentPane.add(btnfanta);
 		
 		JButton btnSprite = new JButton("Sprite");
+		btnSprite.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(sprite.getNom());
+			}
+		});
 		btnSprite.setBounds(260, 180,120, 90);
 		btnSprite.setBackground(Color.CYAN);
 		contentPane.add(btnSprite);
 		
 		JButton btneau = new JButton("Eau");
+		btneau.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(eau.getNom());
+			}
+		});
 		btneau.setBounds(385, 180, 120, 90);
 		btneau.setBackground(Color.CYAN);
 		contentPane.add(btneau);
 		
 		JButton btnbiere = new JButton("Bi\u00E8re");
+		btnbiere.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(biere.getNom());
+			}
+		});
 		btnbiere.setBounds(510, 180,120, 90);
 		btnbiere.setBackground(Color.CYAN);
 		contentPane.add(btnbiere);
 		
 		JButton btncafe = new JButton("Caf\u00E9");
+		btncafe.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(cafe.getNom());
+			}
+		});
 		btncafe.setBackground(Color.CYAN);
 		btncafe.setBounds(1101, 180, 120, 90);
 		contentPane.add(btncafe);
 		
 		JButton btn_hamburger = new JButton("Hamburger");
+		btn_hamburger.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(hamburger.getNom());
+			}
+		});
 		btn_hamburger.setBounds(10, 295, 150, 90);
 		btn_hamburger.setBackground(Color.yellow);
 		contentPane.add(btn_hamburger);
 		
-		JButton btn_fastburger = new JButton("Fast_Burger");
+		JButton btn_fastburger = new JButton("FastBurger");
+		btn_fastburger.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(fastburger.getNom());
+			}
+		});
 		btn_fastburger.setBounds(165, 295, 150, 90);
 		btn_fastburger.setBackground(Color.yellow);
 		contentPane.add(btn_fastburger);
 		
 		JButton btn_speedyburger = new JButton("SpeedyBurger");
+		btn_speedyburger.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(speedyburger.getNom());
+			}
+		});
 		btn_speedyburger.setBounds(320, 295, 150, 90);
 		btn_speedyburger.setBackground(Color.yellow);
 		contentPane.add(btn_speedyburger);
 		
 		JButton btn_baconburger = new JButton("BaconBurger");
+		btn_baconburger.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(baconburger.getNom());
+			}
+		});
 		btn_baconburger.setBounds(475, 295, 150, 90);
 		btn_baconburger.setBackground(Color.yellow);
 		contentPane.add(btn_baconburger);
 		
-		JButton btn_chickenrun = new JButton("Chickenrun");
+		JButton btn_chickenrun = new JButton("ChickenRun");
+		btn_chickenrun.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(chickenrun.getNom());
+			}
+		});
 		btn_chickenrun.setBounds(630, 295, 150, 90);
 		btn_chickenrun.setBackground(Color.yellow);
 		contentPane.add(btn_chickenrun);
 		
-		JButton btn_fishspeed = new JButton("Fishspeed");
+		JButton btn_fishspeed = new JButton("FishSpeed");
+		btn_fishspeed.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(fishspeed.getNom());
+			}
+		});
 		btn_fishspeed.setBackground(Color.yellow);
 		btn_fishspeed.setBounds(785,295, 150, 90);
 		contentPane.add(btn_fishspeed);
 		
 		JButton btn_chickenstick4 = new JButton("Chicken Stick X4");
+		btn_chickenstick4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(chickenstick4.getNom());
+			}
+		});
 		btn_chickenstick4.setBounds(940, 295, 150, 90);
 		btn_chickenstick4.setBackground(Color.yellow);
 		contentPane.add(btn_chickenstick4);
 		
 		JButton btn_chickenstick7 = new JButton("Chicken Stick X7");
+		btn_chickenstick7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(chickenstick7.getNom());
+			}
+		});
 		btn_chickenstick7.setBounds(1095, 295, 150, 90);
 		btn_chickenstick7.setBackground(Color.yellow);
 		contentPane.add(btn_chickenstick7);
@@ -362,30 +480,30 @@ public class Commande extends JFrame {
 		
 		
 		JButton btnFermetureDeLa = new JButton("Fermeture de la caisse");
-		btnFermetureDeLa.setIcon(new ImageIcon("rss/sortie50.png"));
+		btnFermetureDeLa.setIcon(new ImageIcon("E:\\2018\\sortie50.png"));
 		btnFermetureDeLa.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnFermetureDeLa.setBounds(48, 971, 292, 69);
 		contentPane.add(btnFermetureDeLa);
 		
 		JButton btnValdierLaCommande = new JButton("VALIDER LA COMMANDE");
-		btnValdierLaCommande.setIcon(new ImageIcon("rss/valider50.png"));
+		btnValdierLaCommande.setIcon(new ImageIcon("E:\\2018\\valider50.png"));
 		btnValdierLaCommande.setFont(new Font("Tahoma", Font.BOLD, 18));
 		btnValdierLaCommande.setBounds(1442, 905, 436, 121);
 		contentPane.add(btnValdierLaCommande);
 		
 		JButton btnAnnulerLaCommande = new JButton("ANNULER LA COMMANDE");
-		btnAnnulerLaCommande.setIcon(new ImageIcon("rss/cancel50.png"));
+		btnAnnulerLaCommande.setIcon(new ImageIcon("E:\\2018\\cancel50.png"));
 		btnAnnulerLaCommande.setFont(new Font("Tahoma", Font.BOLD, 18));
 		btnAnnulerLaCommande.setBounds(1063, 766, 316, 90);
 		contentPane.add(btnAnnulerLaCommande);
 		
 		JButton btn_Param = new JButton("parametres");
-		btn_Param.setIcon(new ImageIcon("rss/param50.png"));
+		btn_Param.setIcon(new ImageIcon("E:\\2018\\param50.png"));
 		btn_Param.setBounds(360, 971, 234, 69);
 		contentPane.add(btn_Param);
 		
 		JLabel lbllogo = new JLabel("");
-		lbllogo.setIcon(new ImageIcon("rss/speedy_burger1.jpg"));
+		lbllogo.setIcon(new ImageIcon("E:\\2018\\speedy_burger1.jpg"));
 		lbllogo.setBounds(617, 766, 440, 260);
 		contentPane.add(lbllogo);
 		
@@ -393,6 +511,8 @@ public class Commande extends JFrame {
 		JList list = new JList();
 		list.setBounds(1429, 65, 449, 811);
 		contentPane.add(list);
+		
+		list.setModel(listModel);
 		
 		
 		
