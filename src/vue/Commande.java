@@ -68,16 +68,16 @@ public class Commande extends JFrame {
 		Sandwich hamburger=new Sandwich("Hamburger",2,1,"");
 		Sandwich fastburger=new Sandwich("FastBurger",2,2,"");
 		Sandwich speedyburger=new Sandwich("SpeedyBurger",2,3,"");
-		Sandwich baconburger=new Sandwich("BaconBurger",2,4,"");
-		Sandwich chickenrun=new Sandwich("ChickenRun",2,5,"");
-		Sandwich fishspeed=new Sandwich("FishSpeed",2,6,"");
-		Sandwich chickenstick4=new Sandwich("Chicken Stick x4",2,7,"");
-		Sandwich chickenstick7=new Sandwich("Chicken Stick x7",2,8,"");
+		Sandwich baconburger = new Sandwich("BaconBurger",2,4,"");
+		Sandwich chickenrun = new Sandwich("ChickenRun",2,5,"");
+		Sandwich fishspeed = new Sandwich("FishSpeed",2,6,"");
+		Sandwich chickenstick4 = new Sandwich("Chicken Stick x4",2,7,"");
+		Sandwich chickenstick7 = new Sandwich("Chicken Stick x7",2,8,"");
 		
-		Salade salacleo=new Salade("Salade Cléopâtre",2,1);
-		Salade salachef=new Salade("Salade Chef",2,2);
-		Salade salapoulet=new Salade("Salade Poulet",2,3);
-		Salade salagrecque=new Salade("Salade Grecque",2,4);
+		Salade salacleo = new Salade("Salade Cléopâtre",2,1);
+		Salade salachef = new Salade("Salade Chef",2,2);
+		Salade salapoulet = new Salade("Salade Poulet",2,3);
+		Salade salagrecque = new Salade("Salade Grecque",2,4);
 		
 	
 		
