@@ -631,7 +631,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				} 
-				addBoissonInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -658,7 +658,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				} 
-				addBoissonInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -685,7 +685,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				} 
-				addBoissonInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -712,7 +712,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				} 
-				addBoissonInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -739,7 +739,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				} 
-				addBoissonInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -756,7 +756,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addBoissonInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -773,7 +773,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addSandwichInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -789,7 +789,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addSandwichInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -806,7 +806,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addSandwichInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -823,7 +823,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addSandwichInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -840,7 +840,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addSandwichInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -857,7 +857,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addSandwichInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -874,7 +874,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addSandwichInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -891,7 +891,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addSandwichInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -908,7 +908,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addSaladeInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -925,7 +925,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addSaladeInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -942,7 +942,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addSaladeInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -959,7 +959,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addSaladeInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -976,7 +976,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addFriteInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -992,7 +992,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addFriteInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -1009,7 +1009,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addFriteInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -1026,7 +1026,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addDessertInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -1043,7 +1043,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addDessertInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -1060,7 +1060,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addDessertInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -1077,7 +1077,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addDessertInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -1094,7 +1094,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addDessertInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -1111,7 +1111,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addDessertInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -1128,7 +1128,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addDessertInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -1145,7 +1145,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addDessertInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -1162,7 +1162,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addDessertInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -1179,7 +1179,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addDessertInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -1196,7 +1196,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addSauceInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -1213,7 +1213,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addSauceInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -1230,7 +1230,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addSauceInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -1247,7 +1247,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addSauceInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -1264,7 +1264,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addSauceInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -1281,7 +1281,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addSauceInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -1298,7 +1298,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addSauceInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -1315,7 +1315,7 @@ public class Commande extends JFrame {
 					 String s=String.valueOf(prix);
 						lblPrixTot.setText(s);
 				
-				addSauceInCommande(leproduit, Lacommande, listModel, lesProduits);
+				addProduitInCommande(leproduit, Lacommande, listModel, lesProduits);
 				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			
@@ -1346,153 +1346,19 @@ public class Commande extends JFrame {
 	
 	
 	
-	public static void addBoissonInCommande(Produit leproduit, modele.Commande lacommande2, DefaultListModel listModel, ArrayList<Produit> lesProduits) {
+	public static void addProduitInCommande(Produit leproduit, modele.Commande lacommande2, DefaultListModel listModel, ArrayList<Produit> lesProduits) {
 		
 		if (lacommande2.listeProduit.contains(leproduit)) { // Si il y a déja le produit, recupérer quantité
-			
 			int index = lacommande2.listeProduit.indexOf(leproduit);
-			int quantitéDeBase = lacommande2.quantitelisteProduit.get(index);
-			
-			 lacommande2.ajouteQteProduit(index);
-			
+			lacommande2.ajouteQteProduit(index);
 			 			 
 		} else {
-			
 			 lacommande2.addProduit(leproduit);
-
 			 listModel.addElement(leproduit);
 		}
 	}
 	
-public static void addSandwichInCommande(Produit leproduit, modele.Commande lacommande2, DefaultListModel listModel, ArrayList<Produit> lesProduits) {
-		
-		if (lacommande2.listeProduit.contains(leproduit)) { // Si il y a déja le produit, recupérer quantité
-			
-			int index = lacommande2.listeProduit.indexOf(leproduit);
-			int quantitéDeBase = lacommande2.quantitelisteProduit.get(index);
-			
-			 lacommande2.ajouteQteProduit(index); 
-			 
-			 String TxtAncienProduit = leproduit.getNom() + " - Nb : " + quantitéDeBase;
-			 int IndexTXT = listModel.indexOf(TxtAncienProduit);
-			 listModel.removeElement(TxtAncienProduit);
-			 
-			 int newquantité = quantitéDeBase + 1;
-			
-			 String TxtNewProduit = leproduit.getNom() + " - Nb : " + newquantité;
-			 listModel.insertElementAt(TxtNewProduit, IndexTXT);
-		} else {
-			
-			 lacommande2.addProduit(leproduit);
-			
-			 String TxtNewProduit = leproduit.getNom() +  " - Nb : 1";
-			 listModel.addElement(TxtNewProduit);
-		}
-	}
 
-public static void addSaladeInCommande(Produit leproduit, modele.Commande lacommande2, DefaultListModel listModel, ArrayList<Produit> lesProduits) {
-	
-	if (lacommande2.listeProduit.contains(leproduit)) { // Si il y a déja le produit, recupérer quantité
-		
-		int index = lacommande2.listeProduit.indexOf(leproduit);
-		int quantitéDeBase = lacommande2.quantitelisteProduit.get(index);
-		
-		 lacommande2.ajouteQteProduit(index); 
-		 
-		 String TxtAncienProduit = leproduit.getNom() + " - Nb : " + quantitéDeBase;
-		 int IndexTXT = listModel.indexOf(TxtAncienProduit);
-		 listModel.removeElement(TxtAncienProduit);
-		 
-		 int newquantité = quantitéDeBase + 1;
-		
-		 String TxtNewProduit = leproduit.getNom() + " - Nb : " + newquantité;
-		 listModel.insertElementAt(TxtNewProduit, IndexTXT);
-	} else {
-		
-		 lacommande2.addProduit(leproduit);
-		
-		 String TxtNewProduit = leproduit.getNom() +  " - Nb : 1";
-		 listModel.addElement(TxtNewProduit);
-	}
-}
-
-public static void addFriteInCommande(Produit leproduit, modele.Commande lacommande2, DefaultListModel listModel, ArrayList<Produit> lesProduits) {
-	
-	if (lacommande2.listeProduit.contains(leproduit)) { // Si il y a déja le produit, recupérer quantité
-		
-		int index = lacommande2.listeProduit.indexOf(leproduit);
-		int quantitéDeBase = lacommande2.quantitelisteProduit.get(index);
-		
-		 lacommande2.ajouteQteProduit(index); 
-		 
-		 String TxtAncienProduit = leproduit.getNom() + " - Taille " + ((Frite) leproduit).getTaille() + " - Nb : " + quantitéDeBase;
-		 int IndexTXT = listModel.indexOf(TxtAncienProduit);
-		 listModel.removeElement(TxtAncienProduit);
-		 
-		 int newquantité = quantitéDeBase + 1;
-		
-		 String TxtNewProduit = leproduit.getNom() + " - Taille " + ((Frite) leproduit).getTaille() + " - Nb : " + newquantité;
-		 listModel.insertElementAt(TxtNewProduit, IndexTXT);
-	} else {
-		
-		 lacommande2.addProduit(leproduit);
-		
-		 String TxtNewProduit = leproduit.getNom() + " - Taille " + ((Frite) leproduit).getTaille() + " - Nb : 1";
-		 listModel.addElement(TxtNewProduit);
-	}
-}
-
-public static void addDessertInCommande(Produit leproduit, modele.Commande lacommande2, DefaultListModel listModel, ArrayList<Produit> lesProduits) {
-	
-	if (lacommande2.listeProduit.contains(leproduit)) { // Si il y a déja le produit, recupérer quantité
-		
-		int index = lacommande2.listeProduit.indexOf(leproduit);
-		int quantitéDeBase = lacommande2.quantitelisteProduit.get(index);
-		
-		 lacommande2.ajouteQteProduit(index); 
-		 
-		 String TxtAncienProduit = leproduit.getNom() + " - Nb : " + quantitéDeBase;
-		 int IndexTXT = listModel.indexOf(TxtAncienProduit);
-		 listModel.removeElement(TxtAncienProduit);
-		 
-		 int newquantité = quantitéDeBase + 1;
-		
-		 String TxtNewProduit = leproduit.getNom() + " - Nb : " + newquantité;
-		 listModel.insertElementAt(TxtNewProduit, IndexTXT);
-	} else {
-		
-		 lacommande2.addProduit(leproduit);
-		
-		 String TxtNewProduit = leproduit.getNom() +  " - Nb : 1";
-		 listModel.addElement(TxtNewProduit);
-	}
-}
-
-public static void addSauceInCommande(Produit leproduit, modele.Commande lacommande2, DefaultListModel listModel, ArrayList<Produit> lesProduits) {
-	
-	if (lacommande2.listeProduit.contains(leproduit)) { // Si il y a déja le produit, recupérer quantité
-		
-		int index = lacommande2.listeProduit.indexOf(leproduit);
-		int quantitéDeBase = lacommande2.quantitelisteProduit.get(index);
-		
-		 lacommande2.ajouteQteProduit(index); 
-		 
-		 String TxtAncienProduit = leproduit.getNom() + " - Nb : " + quantitéDeBase;
-		 int IndexTXT = listModel.indexOf(TxtAncienProduit);
-		 listModel.removeElement(TxtAncienProduit);
-		 
-		 int newquantité = quantitéDeBase + 1;
-		
-		 String TxtNewProduit = leproduit.getNom() + " - Nb : " + newquantité;
-		 listModel.insertElementAt(TxtNewProduit, IndexTXT);
-	} else {
-		
-		 lacommande2.addProduit(leproduit);
-		
-		 String TxtNewProduit = leproduit.getNom() +  " - Nb : 1";
-		 listModel.addElement(TxtNewProduit);
-	}
-}
 
 	public static void changeStateBtnTaille(String type, JButton buttonActivated, JButton button1, JButton button2)  {
 		if (type.equals("petit")) {
