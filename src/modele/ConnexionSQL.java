@@ -42,7 +42,7 @@ public class ConnexionSQL {
 		     //conn = DriverManager.getConnection(chemin + "?user=" + this.login + "&password=" + this.mdp);
 		    conn = DriverManager.getConnection(chemin, this.login, this.mdp);
 		    
-		    System.out.println("Connexion effective !");    
+		    System.out.println("Connexion  à la BDD effective !");    
 		} 
 		catch (Exception e) {
 			e.printStackTrace();

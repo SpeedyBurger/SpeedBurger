@@ -15,8 +15,8 @@ public class Frite extends Produit {
 		this.taille = taille;
 	}
 
-	public Frite(String nom, int prix, int id, String taille) {
-		super(nom, prix, id);
+	public Frite(String nom, double prix, int id, String pTypeProduit, String taille) {
+		super(nom, prix, id, pTypeProduit);
 		this.taille = taille;
 	}
 

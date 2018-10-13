@@ -2,30 +2,48 @@ package vue;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.border.EmptyBorder;
 
+import javafx.scene.control.ListCell;
 import modele.Boisson;
+import modele.Produit;
 import modele.Salade;
 import modele.Sandwich;
 
 import javax.swing.JButton;
+import javax.swing.JComponent;
+
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
+import javax.swing.ListCellRenderer;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JList;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
 
 public class Commande extends JFrame {
 
 	private JPanel contentPane;
+	public modele.Commande Lacommande = new modele.Commande(1);
+	private static int boutonPetitPressed = 0;
+	private static int boutonMoyenPressed = 1;
+	private static int boutonGrandPressed = 0;
 
 	/**
 	 * Launch the application.
@@ -42,6 +60,7 @@ public class Commande extends JFrame {
 			}
 		});
 	}
+	
 
 	/**
 	 * Create the frame.
@@ -56,8 +75,15 @@ public class Commande extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		DefaultListModel listModel=new DefaultListModel();
+		Produit.produitFromBDD();
 		
+		
+		ArrayList<Produit> lesProduits = Produit.ListeProduits;
+		
+		DefaultListModel listModel=new DefaultListModel();
+	
+		
+		/*
 		Boisson coca=new Boisson("Coca",1,1,"");
 		Boisson fanta=new Boisson("Fanta",1,2,"");
 		Boisson sprite=new Boisson("Sprite",1,3,"");
@@ -68,17 +94,17 @@ public class Commande extends JFrame {
 		Sandwich hamburger=new Sandwich("Hamburger",2,1,"");
 		Sandwich fastburger=new Sandwich("FastBurger",2,2,"");
 		Sandwich speedyburger=new Sandwich("SpeedyBurger",2,3,"");
-		Sandwich baconburger = new Sandwich("BaconBurger",2,4,"");
-		Sandwich chickenrun = new Sandwich("ChickenRun",2,5,"");
-		Sandwich fishspeed = new Sandwich("FishSpeed",2,6,"");
-		Sandwich chickenstick4 = new Sandwich("Chicken Stick x4",2,7,"");
-		Sandwich chickenstick7 = new Sandwich("Chicken Stick x7",2,8,"");
+		Sandwich baconburger=new Sandwich("BaconBurger",2,4,"");
+		Sandwich chickenrun=new Sandwich("ChickenRun",2,5,"");
+		Sandwich fishspeed=new Sandwich("FishSpeed",2,6,"");
+		Sandwich chickenstick4=new Sandwich("Chicken Stick x4",2,7,"");
+		Sandwich chickenstick7=new Sandwich("Chicken Stick x7",2,8,"");
 		
-		Salade salacleo = new Salade("Salade Cléopâtre",2,1);
-		Salade salachef = new Salade("Salade Chef",2,2);
-		Salade salapoulet = new Salade("Salade Poulet",2,3);
-		Salade salagrecque = new Salade("Salade Grecque",2,4);
-		
+		Salade salacleo=new Salade("Salade Cléopâtre",2,1);
+		Salade salachef=new Salade("Salade Chef",2,2);
+		Salade salapoulet=new Salade("Salade Poulet",2,3);
+		Salade salagrecque=new Salade("Salade Grecque",2,4);
+		*/
 	
 		
 		
@@ -122,21 +148,11 @@ public class Commande extends JFrame {
 		
 		
 		JButton btncoca = new JButton("Coca");
-		btncoca.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				listModel.addElement(coca.getNom());
-			}
-		});
 		btncoca.setBounds(10, 180, 120, 90);
 		btncoca.setBackground(Color.CYAN);
 		contentPane.add(btncoca);
 		
 		JButton btnfanta = new JButton("Fanta");
-		btnfanta.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				listModel.addElement(fanta.getNom());
-			}
-		});
 		btnfanta.setBounds(135, 180,120, 90);
 		btnfanta.setBackground(Color.CYAN);
 		contentPane.add(btnfanta);
@@ -145,7 +161,7 @@ public class Commande extends JFrame {
 		btnSprite.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				listModel.addElement(sprite.getNom());
+				// listModel.addElement(sprite.getNom());
 			}
 		});
 		btnSprite.setBounds(260, 180,120, 90);
@@ -156,7 +172,7 @@ public class Commande extends JFrame {
 		btneau.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				listModel.addElement(eau.getNom());
+				// listModel.addElement(eau.getNom());
 			}
 		});
 		btneau.setBounds(385, 180, 120, 90);
@@ -167,7 +183,7 @@ public class Commande extends JFrame {
 		btnbiere.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				listModel.addElement(biere.getNom());
+				// listModel.addElement(biere.getNom());
 			}
 		});
 		btnbiere.setBounds(510, 180,120, 90);
@@ -178,7 +194,7 @@ public class Commande extends JFrame {
 		btncafe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				listModel.addElement(cafe.getNom());
+				// listModel.addElement(cafe.getNom());
 			}
 		});
 		btncafe.setBackground(Color.CYAN);
@@ -189,7 +205,7 @@ public class Commande extends JFrame {
 		btn_hamburger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				listModel.addElement(hamburger.getNom());
+				// listModel.addElement(hamburger.getNom());
 			}
 		});
 		btn_hamburger.setBounds(10, 295, 150, 90);
@@ -200,7 +216,7 @@ public class Commande extends JFrame {
 		btn_fastburger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				listModel.addElement(fastburger.getNom());
+				// listModel.addElement(fastburger.getNom());
 			}
 		});
 		btn_fastburger.setBounds(165, 295, 150, 90);
@@ -211,7 +227,7 @@ public class Commande extends JFrame {
 		btn_speedyburger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				listModel.addElement(speedyburger.getNom());
+				// listModel.addElement(speedyburger.getNom());
 			}
 		});
 		btn_speedyburger.setBounds(320, 295, 150, 90);
@@ -222,7 +238,7 @@ public class Commande extends JFrame {
 		btn_baconburger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				listModel.addElement(baconburger.getNom());
+				// listModel.addElement(baconburger.getNom());
 			}
 		});
 		btn_baconburger.setBounds(475, 295, 150, 90);
@@ -233,7 +249,7 @@ public class Commande extends JFrame {
 		btn_chickenrun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				listModel.addElement(chickenrun.getNom());
+				// listModel.addElement(chickenrun.getNom());
 			}
 		});
 		btn_chickenrun.setBounds(630, 295, 150, 90);
@@ -244,7 +260,7 @@ public class Commande extends JFrame {
 		btn_fishspeed.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				listModel.addElement(fishspeed.getNom());
+				// listModel.addElement(fishspeed.getNom());
 			}
 		});
 		btn_fishspeed.setBackground(Color.yellow);
@@ -255,7 +271,7 @@ public class Commande extends JFrame {
 		btn_chickenstick4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				listModel.addElement(chickenstick4.getNom());
+				// listModel.addElement(chickenstick4.getNom());
 			}
 		});
 		btn_chickenstick4.setBounds(940, 295, 150, 90);
@@ -266,7 +282,7 @@ public class Commande extends JFrame {
 		btn_chickenstick7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				listModel.addElement(chickenstick7.getNom());
+				// listModel.addElement(chickenstick7.getNom());
 			}
 		});
 		btn_chickenstick7.setBounds(1095, 295, 150, 90);
@@ -469,7 +485,7 @@ public class Commande extends JFrame {
 		contentPane.add(btn_bPetite);
 		
 		JButton bt_bMoyenne = new JButton("Moyenne");
-		bt_bMoyenne.setBackground(new Color(128, 128, 128));
+		bt_bMoyenne.setBackground(Color.GREEN);
 		bt_bMoyenne.setBounds(759, 196, 109, 58);
 		contentPane.add(bt_bMoyenne);
 		
@@ -477,6 +493,11 @@ public class Commande extends JFrame {
 		btn_BGrande.setBackground(new Color(128, 128, 128));
 		btn_BGrande.setBounds(878, 196, 109, 58);
 		contentPane.add(btn_BGrande);
+		
+		List<JComponent> listeGroupeBtnTaille = new ArrayList<JComponent>();
+		listeGroupeBtnTaille.add(btn_BGrande);
+		listeGroupeBtnTaille.add(bt_bMoyenne);
+		listeGroupeBtnTaille.add(btn_bPetite);
 		
 		
 		JButton btnFermetureDeLa = new JButton("Fermeture de la caisse");
@@ -508,13 +529,116 @@ public class Commande extends JFrame {
 		contentPane.add(lbllogo);
 		
 		
-		JList list = new JList();
+		JList list = new JList(listModel);
 		list.setBounds(1429, 65, 449, 811);
 		contentPane.add(list);
+	
 		
-		list.setModel(listModel);
 		
+		btn_bPetite.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				changeStateBtnTaille("petit", btn_bPetite, btn_BGrande, bt_bMoyenne);
+			}
+		});
+		
+		bt_bMoyenne.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
+			}
+		});
+		
+		btn_BGrande.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				changeStateBtnTaille("grand", btn_BGrande, bt_bMoyenne, btn_bPetite);
+			}
+		});
+		
+		btncoca.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Produit leproduit = null;
+				
+				if (boutonPetitPressed == 1) {
+					 leproduit = lesProduits.get(2);
+				} else if (boutonMoyenPressed == 1) {
+					 leproduit = lesProduits.get(0); 
+				} else if (boutonGrandPressed == 1) {
+					 leproduit = lesProduits.get(1); 
+				} 
+				addBoissonInCommande(leproduit, Lacommande, listModel, lesProduits);
+				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
+
+			
+			}
+		});
+		
+		btnfanta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Produit leproduit = null;
+				
+				if (boutonPetitPressed == 1) {
+					 leproduit = lesProduits.get(3);
+				} else if (boutonMoyenPressed == 1) {
+					 leproduit = lesProduits.get(4); 
+				} else if (boutonGrandPressed == 1) {
+					 leproduit = lesProduits.get(5); 
+				} 
+				addBoissonInCommande(leproduit, Lacommande, listModel, lesProduits);
+				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
+
+			
+			}
+		});
 		
 		
 	}
+	
+	public static void addBoissonInCommande(Produit leproduit, modele.Commande lacommande2, DefaultListModel listModel, ArrayList<Produit> lesProduits) {
+		
+		if (lacommande2.listeProduit.contains(leproduit)) { // Si il y a déja le produit, recupérer quantité
+			
+			int index = lacommande2.listeProduit.indexOf(leproduit);
+			int quantitéDeBase = lacommande2.quantitelisteProduit.get(index);
+			
+			 lacommande2.ajouteQteProduit(index); 
+			 
+			 String TxtAncienProduit = leproduit.getNom() + " - Taille " + ((Boisson) leproduit).getTaille() + " - Nb : " + quantitéDeBase;
+			 int IndexTXT = listModel.indexOf(TxtAncienProduit);
+			 listModel.removeElement(TxtAncienProduit);
+			 
+			 int newquantité = quantitéDeBase + 1;
+			
+			 String TxtNewProduit = leproduit.getNom() + " - Taille " + ((Boisson) leproduit).getTaille() + " - Nb : " + newquantité;
+			 listModel.insertElementAt(TxtNewProduit, IndexTXT);
+		} else {
+			
+			 lacommande2.addProduit(leproduit);
+			
+			 String TxtNewProduit = leproduit.getNom() + " - Taille " + ((Boisson) leproduit).getTaille() + " - Nb : 1";
+			 listModel.addElement(TxtNewProduit);
+		}
+	}
+	
+	public static void changeStateBtnTaille(String type, JButton buttonActivated, JButton button1, JButton button2)  {
+		if (type.equals("petit")) {
+			boutonPetitPressed = 1;
+			boutonMoyenPressed = 0;
+			boutonGrandPressed = 0;
+		} else if (type.equals("moyen")) {
+			boutonMoyenPressed = 1;
+			boutonPetitPressed = 0;
+			boutonGrandPressed = 0;
+			
+		} else if (type.equals("grand")) {
+			boutonGrandPressed = 1;
+			boutonPetitPressed = 0;
+			boutonMoyenPressed = 0;
+		}
+		
+		buttonActivated.setBackground(Color.GREEN);
+		button1.setBackground(Color.GRAY);
+		button2.setBackground(Color.GRAY);
+	}
+	
+
+	
 }

@@ -7,8 +7,8 @@ public class Sandwich extends Produit {
 	public void AfficherTaille() {
 	}
 
-	public Sandwich(String nom, int prix, int id, String taille) {
-		super(nom, prix, id);
+	public Sandwich(String nom, double prix, int id, String pTypeProduit, String taille) {
+		super(nom, prix, id, pTypeProduit);
 		this.taille = taille;
 	}
 

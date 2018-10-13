@@ -6,7 +6,7 @@ public class Menu extends Produit {
 
 	protected String nom;
 
-	protected int prix;
+	protected double prix;
 
 	protected int id;
 
@@ -18,7 +18,7 @@ public class Menu extends Produit {
 		this.nom = nom;
 	}
 
-	public int getPrix() {
+	public double getPrix() {
 		return prix;
 	}
 
@@ -34,8 +34,8 @@ public class Menu extends Produit {
 		this.id = id;
 	}
 
-	public Menu(String nom, int prix, int id) {
-		super(nom, prix, id);
+	public Menu(String nom, double prix, int id, String pTypeProduit) {
+		super(nom, prix, id, pTypeProduit);
 		this.nom = nom;
 		this.prix = prix;
 		this.id = id;

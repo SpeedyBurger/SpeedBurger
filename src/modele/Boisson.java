@@ -16,9 +16,11 @@ public class Boisson extends Produit {
 		this.taille = taille;
 	}
 
-	public Boisson(String nom, int prix, int id, String taille) {
-		super(nom, prix, id);
+	public Boisson(String nom, double prix, int id, String pTypeProduit, String taille) {
+		super(nom, prix, id, pTypeProduit);
 		this.taille = taille;
 	}
+	
+	
 
 }
