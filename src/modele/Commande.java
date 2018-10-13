@@ -28,6 +28,10 @@ public class Commande {
 		this.listeProduit = listeProduit;
 	}
 
+	public double getPrix(int index) {
+		double prix = this.listeProduit.get(index).getPrix();
+		return prix;
+	}
 	public void addProduit(Produit pProduit) {
 		this.listeProduit.add(pProduit);
 		this.quantitelisteProduit.add(1);

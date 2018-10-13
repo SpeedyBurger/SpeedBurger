@@ -579,6 +579,9 @@ public class Commande extends JFrame {
 				Lacommande.quantitelisteProduit.clear();
 				Lacommande.listeProduit.clear();
 				listModel.removeAllElements();
+				 prix=0;
+				 String s=String.valueOf(prix);
+					lblPrixTot.setText(s);
 			}
 		});
 		
@@ -1346,13 +1349,14 @@ public class Commande extends JFrame {
 				int quantitéDeBase = Lacommande.quantitelisteProduit.get(currentIndex);
 				
 				Lacommande.retireQteProduit(currentIndex);
-				
+				prix-=Lacommande.getPrix(currentIndex);
 				if (quantitéDeBase==1) {
-					
 					Lacommande.quantitelisteProduit.remove(currentIndex);
 					Lacommande.listeProduit.remove(currentIndex);
 					listModel.remove(currentIndex);
 				}
+				 String s=String.valueOf(prix);
+					lblPrixTot.setText(s);
 				
 			}
 		});
