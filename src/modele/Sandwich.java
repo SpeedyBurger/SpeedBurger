@@ -6,6 +6,10 @@ public class Sandwich extends Produit {
 
 	public void AfficherTaille() {
 	}
+	
+	public String getTaille() {
+		return taille;
+	}
 
 	public Sandwich(String nom, double prix, int id, String pTypeProduit, String taille) {
 		super(nom, prix, id, pTypeProduit);
