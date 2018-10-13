@@ -35,6 +35,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JList;
+import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import java.beans.PropertyChangeListener;
@@ -63,6 +64,45 @@ public class Commande extends JFrame {
 			}
 		});
 	}
+	
+	private class MyListCellRenderer extends DefaultListCellRenderer {
+
+        @Override
+        public Component getListCellRendererComponent(JList list, Object value, int index,boolean isSelected, boolean cellHasFocus) {
+            super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+            
+            Produit pProduit = (Produit) value;
+            String nom = pProduit.getNom();
+            String labelText;
+
+            List<Produit> listeProduit = Lacommande.getListeProduit();
+            int indexProduit = 0;
+            int quantite = 0;
+            
+            if (listeProduit.contains(pProduit)) {
+            	 indexProduit = listeProduit.indexOf(pProduit);
+            	 quantite = Lacommande.quantitelisteProduit.get(indexProduit);
+            } else {
+            	quantite = 1;
+            }
+            
+            
+            if (pProduit.getClass().equals("Boisson") || pProduit.getClass().equals("Frite") || pProduit.getClass().equals("Sandwitch") ) {
+            	 labelText = "<html>" + nom + " - Taille " + ((Boisson) pProduit).getTaille() + " - Nb : " + quantite;
+            } else if (pProduit.getClass().equals("Menu")) {
+            	labelText = "<html>" + nom;
+            } else {
+            	 labelText = "<html>" + nom + " - Taille " + ((Boisson) pProduit).getTaille() + " - Nb : " + quantite;
+            }
+            
+            setText(labelText);
+            
+            list.repaint();
+
+            return this;
+        }
+
+    }
 	
 	public double prix;
 	public int currentIndex;
@@ -550,8 +590,8 @@ public class Commande extends JFrame {
 		JList list = new JList(listModel);
 		list.setBounds(1429, 65, 449, 811);
 		contentPane.add(list);
-	
-		
+		list.setCellRenderer(new MyListCellRenderer());
+
 		
 		btn_bPetite.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -1313,22 +1353,14 @@ public class Commande extends JFrame {
 			int index = lacommande2.listeProduit.indexOf(leproduit);
 			int quantitéDeBase = lacommande2.quantitelisteProduit.get(index);
 			
-			 lacommande2.ajouteQteProduit(index); 
-			 
-			 String TxtAncienProduit = leproduit.getNom() + " - Taille " + ((Boisson) leproduit).getTaille() + " - Nb : " + quantitéDeBase;
-			 int IndexTXT = listModel.indexOf(TxtAncienProduit);
-			 listModel.removeElement(TxtAncienProduit);
-			 
-			 int newquantité = quantitéDeBase + 1;
+			 lacommande2.ajouteQteProduit(index);
 			
-			 String TxtNewProduit = leproduit.getNom() + " - Taille " + ((Boisson) leproduit).getTaille() + " - Nb : " + newquantité;
-			 listModel.insertElementAt(TxtNewProduit, IndexTXT);
+			 			 
 		} else {
 			
 			 lacommande2.addProduit(leproduit);
-			
-			 String TxtNewProduit = leproduit.getNom() + " - Taille " + ((Boisson) leproduit).getTaille() + " - Nb : 1";
-			 listModel.addElement(TxtNewProduit);
+
+			 listModel.addElement(leproduit);
 		}
 	}
 	
