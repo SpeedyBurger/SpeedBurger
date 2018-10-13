@@ -24,12 +24,12 @@ public class ConnexionSQL {
 	}
 	
 	public ConnexionSQL() {
-		this.nomBDD = "speedyburgertest";
-		this.login = "root";
-		this.mdp = "";
-		this.url = "127.0.0.1";
-		this.SeConnecter();
-	}
+        this.nomBDD = "speedyburgertest";
+        this.login = "root";
+        this.mdp = "";
+        this.url = "127.0.0.1";
+        this.SeConnecter();
+    }
 	
 	//Méthode permettant la connexion au serveur
 	public void SeConnecter(){
@@ -42,7 +42,7 @@ public class ConnexionSQL {
 		     //conn = DriverManager.getConnection(chemin + "?user=" + this.login + "&password=" + this.mdp);
 		    conn = DriverManager.getConnection(chemin, this.login, this.mdp);
 		    
-		    System.out.println("Connexion effective !");    
+		    System.out.println("Connexion  à la BDD effective !");    
 		} 
 		catch (Exception e) {
 			e.printStackTrace();
