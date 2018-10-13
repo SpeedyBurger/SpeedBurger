@@ -9,8 +9,11 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import modele.Boisson;
+import modele.Dessert;
+import modele.Frite;
 import modele.Salade;
 import modele.Sandwich;
+import modele.Sauce;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -42,7 +45,7 @@ public class Commande extends JFrame {
 			}
 		});
 	}
-
+		public double prix;
 	/**
 	 * Create the frame.
 	 */
@@ -68,18 +71,42 @@ public class Commande extends JFrame {
 		Sandwich hamburger=new Sandwich("Hamburger",2,1,"");
 		Sandwich fastburger=new Sandwich("FastBurger",2,2,"");
 		Sandwich speedyburger=new Sandwich("SpeedyBurger",2,3,"");
-		Sandwich baconburger = new Sandwich("BaconBurger",2,4,"");
-		Sandwich chickenrun = new Sandwich("ChickenRun",2,5,"");
-		Sandwich fishspeed = new Sandwich("FishSpeed",2,6,"");
-		Sandwich chickenstick4 = new Sandwich("Chicken Stick x4",2,7,"");
-		Sandwich chickenstick7 = new Sandwich("Chicken Stick x7",2,8,"");
+		Sandwich baconburger=new Sandwich("BaconBurger",2,4,"");
+		Sandwich chickenrun=new Sandwich("ChickenRun",2,5,"");
+		Sandwich fishspeed=new Sandwich("FishSpeed",2,6,"");
+		Sandwich chickenstick4=new Sandwich("Chicken Stick x4",2,7,"");
+		Sandwich chickenstick7=new Sandwich("Chicken Stick x7",2,8,"");
 		
-		Salade salacleo = new Salade("Salade Cléopâtre",2,1);
-		Salade salachef = new Salade("Salade Chef",2,2);
-		Salade salapoulet = new Salade("Salade Poulet",2,3);
-		Salade salagrecque = new Salade("Salade Grecque",2,4);
+		Salade salacleo=new Salade("Salade Cléopâtre",2,1);
+		Salade salachef=new Salade("Salade Chef",2,2);
+		Salade salapoulet=new Salade("Salade Poulet",2,3);
+		Salade salagrecque=new Salade("Salade Grecque",2,4);
 		
-	
+		Frite fritepetite=new Frite("Frite Petite",1,1,"");
+		Frite fritemoyenne=new Frite("Frite Moyenne",1,2,"");
+		Frite fritegrande=new Frite("Frite Grande",1,3,"");
+		
+		Dessert sundaevanille=new Dessert("Sundae Vanille",1,1);
+		Dessert sundaechocolat=new Dessert("Sundae Chocolat",1,2);
+		Dessert sundaefraise=new Dessert("Sundae Fraise",1,3);
+		Dessert milkshakevanille=new Dessert("Milkshake Vanille",1,4);
+		Dessert milkshakebanane=new Dessert("Milkshake Banane",1,5);
+		Dessert milkshakecafe=new Dessert("Milkshake Café",1,6);
+		Dessert brownie=new Dessert("Brownie",1,7);
+		Dessert speedosglace=new Dessert("Speedos glacé",1,8);
+		Dessert compote=new Dessert("Compote",1,9);
+		Dessert tranchpommes=new Dessert("Tranch'pommes",1,10);
+		
+		Sauce saucechinoise=new Sauce("Sauce Chinoise",0,1);
+		Sauce saucecurry=new Sauce("Sauce Curry",0,2);
+		Sauce saucebbq=new Sauce("Sauce Barbecue",0,3);
+		Sauce sauceketchup=new Sauce("Sauce Ketchup",0,4);
+		Sauce saucemayo=new Sauce("Sauce Mayonnaise ",0,5);
+		Sauce sauceorientale=new Sauce("Sauce Orientale ",0,6);
+		Sauce saucehotsalsa=new Sauce("Sauce Hot Salsa ",0,7);
+		Sauce sauceaigredouce=new Sauce("Sauce Aigre Douce ",0,8);
+		
+		
 		
 		
 		JButton btnMhamburger = new JButton("<HTML><BODY>Menu<Br> Hamburger</BODY></HTML>");
@@ -120,11 +147,17 @@ public class Commande extends JFrame {
 		lblSaisieDeCommande.setBounds(299, 11, 385, 36);
 		contentPane.add(lblSaisieDeCommande);
 		
+		JLabel lblPrixTot = new JLabel("0");
+		lblPrixTot.setBounds(1719, 892, 59, 27);
+		contentPane.add(lblPrixTot);
 		
 		JButton btncoca = new JButton("Coca");
 		btncoca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				listModel.addElement(coca.getNom());
+				prix+=coca.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
 			}
 		});
 		btncoca.setBounds(10, 180, 120, 90);
@@ -135,6 +168,9 @@ public class Commande extends JFrame {
 		btnfanta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				listModel.addElement(fanta.getNom());
+				prix+=fanta.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
 			}
 		});
 		btnfanta.setBounds(135, 180,120, 90);
@@ -146,6 +182,9 @@ public class Commande extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				listModel.addElement(sprite.getNom());
+				prix+=sprite.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
 			}
 		});
 		btnSprite.setBounds(260, 180,120, 90);
@@ -157,6 +196,9 @@ public class Commande extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				listModel.addElement(eau.getNom());
+				prix+=eau.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
 			}
 		});
 		btneau.setBounds(385, 180, 120, 90);
@@ -168,6 +210,9 @@ public class Commande extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				listModel.addElement(biere.getNom());
+				prix+=eau.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
 			}
 		});
 		btnbiere.setBounds(510, 180,120, 90);
@@ -179,6 +224,9 @@ public class Commande extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				listModel.addElement(cafe.getNom());
+				prix+=cafe.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
 			}
 		});
 		btncafe.setBackground(Color.CYAN);
@@ -190,6 +238,9 @@ public class Commande extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				listModel.addElement(hamburger.getNom());
+				prix+=hamburger.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
 			}
 		});
 		btn_hamburger.setBounds(10, 295, 150, 90);
@@ -201,6 +252,9 @@ public class Commande extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				listModel.addElement(fastburger.getNom());
+				prix+=fastburger.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
 			}
 		});
 		btn_fastburger.setBounds(165, 295, 150, 90);
@@ -212,6 +266,9 @@ public class Commande extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				listModel.addElement(speedyburger.getNom());
+				prix+=speedyburger.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
 			}
 		});
 		btn_speedyburger.setBounds(320, 295, 150, 90);
@@ -223,6 +280,9 @@ public class Commande extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				listModel.addElement(baconburger.getNom());
+				prix+=baconburger.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
 			}
 		});
 		btn_baconburger.setBounds(475, 295, 150, 90);
@@ -234,6 +294,9 @@ public class Commande extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				listModel.addElement(chickenrun.getNom());
+				prix+=chickenrun.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
 			}
 		});
 		btn_chickenrun.setBounds(630, 295, 150, 90);
@@ -245,6 +308,9 @@ public class Commande extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				listModel.addElement(fishspeed.getNom());
+				prix+=fishspeed.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
 			}
 		});
 		btn_fishspeed.setBackground(Color.yellow);
@@ -256,6 +322,9 @@ public class Commande extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				listModel.addElement(chickenstick4.getNom());
+				prix+=chickenstick4.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
 			}
 		});
 		btn_chickenstick4.setBounds(940, 295, 150, 90);
@@ -267,6 +336,9 @@ public class Commande extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				listModel.addElement(chickenstick7.getNom());
+				prix+=chickenstick7.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
 			}
 		});
 		btn_chickenstick7.setBounds(1095, 295, 150, 90);
@@ -274,21 +346,57 @@ public class Commande extends JFrame {
 		contentPane.add(btn_chickenstick7);
 		
 		JButton btn_scleopatre = new JButton("<HTML><BODY>Salade<Br> Cl\u00E9opatre</BODY></HTML>");
+		btn_scleopatre.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				listModel.addElement(salacleo.getNom());
+				prix+=salacleo.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_scleopatre.setBounds(10, 410, 150, 90);
 		btn_scleopatre.setBackground(Color.green);
 		contentPane.add(btn_scleopatre);
 		
 		JButton btn_schef = new JButton("<HTML><BODY>Salade<Br> Chef</BODY></HTML>");
+		btn_schef.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(salachef.getNom());
+				prix+=salachef.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_schef.setBounds(165, 410, 150, 90);
 		btn_schef.setBackground(Color.green);
 		contentPane.add(btn_schef);
 		
 		JButton btn_spoulet = new JButton("<HTML><BODY>Salade<Br> Poulet</BODY></HTML>");
+		btn_spoulet.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(salapoulet.getNom());
+				prix+=salapoulet.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_spoulet.setBounds(320, 410, 150, 90);
 		btn_spoulet.setBackground(Color.green);
 		contentPane.add(btn_spoulet);
 		
 		JButton btn_sgrecque = new JButton("<HTML><BODY>Salade<Br> Grecque</BODY></HTML>");
+		btn_sgrecque.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(salagrecque.getNom());
+				prix+=salagrecque.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_sgrecque.setBounds(475, 410, 150, 90);
 		btn_sgrecque.setBackground(Color.green);
 		contentPane.add(btn_sgrecque);
@@ -315,16 +423,43 @@ public class Commande extends JFrame {
 		contentPane.add(lbl_frite);
 		
 		JButton btn_fritepetite = new JButton("<HTML><BODY>Frite<Br>PETITE</BODY></HTML>");
+		btn_fritepetite.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(fritepetite.getNom());
+				prix+=fritepetite.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_fritepetite.setBackground(Color.ORANGE);
 		btn_fritepetite.setBounds(785, 410, 150, 90);
 		contentPane.add(btn_fritepetite);
 		
 		JButton btn_fritemoyenne = new JButton("<HTML><BODY>Frite<Br>MOYENNE</BODY></HTML>");
+		btn_fritemoyenne.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(fritemoyenne.getNom());
+				prix+=fritemoyenne.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_fritemoyenne.setBackground(Color.ORANGE);
 		btn_fritemoyenne.setBounds(940, 410, 150, 90);
 		contentPane.add(btn_fritemoyenne);
 		
 		JButton btnfritegrande = new JButton("<HTML><BODY>Frite<Br>GRANDE</BODY></HTML>");
+		btnfritegrande.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(fritegrande.getNom());
+				prix+=fritegrande.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btnfritegrande.setBackground(Color.ORANGE);
 		btnfritegrande.setBounds(1095, 410, 150, 90);
 		contentPane.add(btnfritegrande);
@@ -334,51 +469,140 @@ public class Commande extends JFrame {
 		contentPane.add(lbl_desserts);
 		
 		JButton btn_sundaevanille = new JButton("<HTML><BODY>Sundae<Br> Vanille</BODY></HTML>");
+		btn_sundaevanille.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(sundaevanille.getNom());
+				prix+=sundaevanille.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_sundaevanille.setBackground(Color.PINK);
 		btn_sundaevanille.setBounds(10, 530, 130, 90);
 		contentPane.add(btn_sundaevanille);
 		
 		JButton btn_sundaechoco = new JButton("<HTML><BODY>Sundae<Br> Chocolat</BODY></HTML>");
+		btn_sundaechoco.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(sundaechocolat.getNom());
+				prix+=sundaechocolat.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_sundaechoco.setBackground(Color.PINK);
 		btn_sundaechoco.setBounds(145, 530, 130, 90);
 		contentPane.add(btn_sundaechoco);
 		
 		JButton btn_sundaefraise = new JButton("<HTML><BODY>Sundae<Br> Fraise</BODY></HTML>");
+		btn_sundaefraise.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(sundaefraise.getNom());
+				prix+=sundaefraise.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_sundaefraise.setBackground(Color.PINK);
 		btn_sundaefraise.setBounds(280, 530, 130, 90);
 		contentPane.add(btn_sundaefraise);
 		
 		JButton btn_Milshakevanille = new JButton("<HTML><BODY>Milkshake<Br> Vanille</BODY></HTML>");
+		btn_Milshakevanille.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(milkshakevanille.getNom());
+				prix+=milkshakevanille.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_Milshakevanille.setBackground(Color.PINK);
 		btn_Milshakevanille.setBounds(415, 530, 130, 90);
 		contentPane.add(btn_Milshakevanille);
 		
 		JButton btn_Milshakebanane = new JButton("<HTML><BODY>Milkshake<Br> Banane</BODY></HTML>");
+		btn_Milshakebanane.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(milkshakebanane.getNom());
+				prix+=milkshakebanane.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_Milshakebanane.setBackground(Color.PINK);
 		btn_Milshakebanane.setBounds(550, 530, 130, 90);
 		contentPane.add(btn_Milshakebanane);
 		
 		JButton btn_milkshakecafe = new JButton("<HTML><BODY>Milkshake<Br> Caf\u00E9</BODY></HTML>");
+		btn_milkshakecafe.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(milkshakecafe.getNom());
+				prix+=milkshakecafe.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_milkshakecafe.setBackground(Color.PINK);
 		btn_milkshakecafe.setBounds(685, 530, 130, 90);
 		contentPane.add(btn_milkshakecafe);
 		
-		JButton btn_brownies = new JButton("Brownies");
+		JButton btn_brownies = new JButton("Brownie");
+		btn_brownies.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(brownie.getNom());
+				prix+=brownie.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_brownies.setBackground(Color.PINK);
 		btn_brownies.setBounds(820, 530, 130, 90);
 		contentPane.add(btn_brownies);
 		
 		JButton btn_speedosglace = new JButton("SpeedosGalc\u00E9");
+		btn_speedosglace.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(speedosglace.getNom());
+				prix+=speedosglace.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_speedosglace.setBackground(Color.PINK);
 		btn_speedosglace.setBounds(955, 530, 130, 90);
 		contentPane.add(btn_speedosglace);
 		
 		JButton btn_compote = new JButton("Compote");
+		btn_compote.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(compote.getNom());
+				prix+=compote.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_compote.setBackground(Color.PINK);
 		btn_compote.setBounds(1091, 530, 130, 90);
 		contentPane.add(btn_compote);
 		
-		JButton btn_tranchepomme = new JButton("Tranch_pomme");
+		JButton btn_tranchepomme = new JButton("Tranch'pommes");
+		btn_tranchepomme.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				listModel.addElement(tranchpommes.getNom());
+				prix+=tranchpommes.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_tranchepomme.setBackground(Color.PINK);
 		btn_tranchepomme.setBounds(1226, 530, 130, 90);
 		contentPane.add(btn_tranchepomme);
@@ -388,41 +612,113 @@ public class Commande extends JFrame {
 		contentPane.add(lbl_sauces);
 		
 		JButton btn_saucechinoise = new JButton("<HTML><BODY>Sauce<Br> Chinoise</BODY></HTML>");
+		btn_saucechinoise.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(saucechinoise.getNom());
+				prix+=saucechinoise.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_saucechinoise.setBackground(new Color(255, 69, 0));
 		btn_saucechinoise.setBounds(10, 645, 130, 90);
 		contentPane.add(btn_saucechinoise);
 		
 		JButton btn_saucecurry = new JButton("<HTML><BODY>Sauce<Br> Curry</BODY></HTML>");
+		btn_saucecurry.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(saucecurry.getNom());
+				prix+=saucecurry.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_saucecurry.setBackground(new Color(255, 69, 0));
 		btn_saucecurry.setBounds(145, 645, 130, 90);
 		contentPane.add(btn_saucecurry);
 		
 		JButton btn_saucebarbecue = new JButton("<HTML><BODY>Sauce<Br> Barbecue</BODY></HTML>");
+		btn_saucebarbecue.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(saucebbq.getNom());
+				prix+=saucebbq.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_saucebarbecue.setBackground(new Color(255, 69, 0));
 		btn_saucebarbecue.setBounds(280, 645, 130, 90);
 		contentPane.add(btn_saucebarbecue);
 		
 		JButton btn_sauceketchup = new JButton("<HTML><BODY>Sauce<Br> Ketchup</BODY></HTML>");
+		btn_sauceketchup.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(sauceketchup.getNom());
+				prix+=sauceketchup.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_sauceketchup.setBackground(new Color(255, 69, 0));
 		btn_sauceketchup.setBounds(415, 645, 130, 90);
 		contentPane.add(btn_sauceketchup);
 		
 		JButton btn_mayonnaise = new JButton("<HTML><BODY>Sauce<Br> Mayonnaise</BODY></HTML>");
+		btn_mayonnaise.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(saucemayo.getNom());
+				prix+=saucemayo.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_mayonnaise.setBackground(new Color(255, 69, 0));
 		btn_mayonnaise.setBounds(550, 645, 130, 90);
 		contentPane.add(btn_mayonnaise);
 		
 		JButton btn_sauceorientale = new JButton("<HTML><BODY>Sauce<Br> Orientale</BODY></HTML>");
+		btn_sauceorientale.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(sauceorientale.getNom());
+				prix+=sauceorientale.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_sauceorientale.setBackground(new Color(255, 69, 0));
 		btn_sauceorientale.setBounds(685, 645, 130, 90);
 		contentPane.add(btn_sauceorientale);
 		
 		JButton btn_saucehotsalsa = new JButton("<HTML><BODY>Sauce<Br> Hot Salsa</BODY></HTML>");
+		btn_saucehotsalsa.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(saucehotsalsa.getNom());
+				prix+=saucehotsalsa.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_saucehotsalsa.setBackground(new Color(255, 69, 0));
 		btn_saucehotsalsa.setBounds(820, 645, 130, 90);
 		contentPane.add(btn_saucehotsalsa);
 		
 		JButton btn_aigredouce = new JButton("<HTML><BODY>Sauce<Br> Aigre douce</BODY></HTML>");
+		btn_aigredouce.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				listModel.addElement(sauceaigredouce.getNom());
+				prix+=sauceaigredouce.getPrix();
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+			}
+		});
 		btn_aigredouce.setBackground(new Color(255, 69, 0));
 		btn_aigredouce.setBounds(955, 645, 130, 90);
 		contentPane.add(btn_aigredouce);
@@ -480,30 +776,60 @@ public class Commande extends JFrame {
 		
 		
 		JButton btnFermetureDeLa = new JButton("Fermeture de la caisse");
-		btnFermetureDeLa.setIcon(new ImageIcon("E:\\2018\\sortie50.png"));
+		btnFermetureDeLa.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				dispose();
+			}
+		});
+		btnFermetureDeLa.setIcon(new ImageIcon("Ressources/sortie50.png"));
 		btnFermetureDeLa.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnFermetureDeLa.setBounds(48, 971, 292, 69);
 		contentPane.add(btnFermetureDeLa);
 		
 		JButton btnValdierLaCommande = new JButton("VALIDER LA COMMANDE");
-		btnValdierLaCommande.setIcon(new ImageIcon("E:\\2018\\valider50.png"));
+		btnValdierLaCommande.setIcon(new ImageIcon("Ressources/valider50.png"));
 		btnValdierLaCommande.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnValdierLaCommande.setBounds(1442, 905, 436, 121);
+		btnValdierLaCommande.setBounds(1563, 955, 324, 77);
 		contentPane.add(btnValdierLaCommande);
 		
 		JButton btnAnnulerLaCommande = new JButton("ANNULER LA COMMANDE");
-		btnAnnulerLaCommande.setIcon(new ImageIcon("E:\\2018\\cancel50.png"));
+		btnAnnulerLaCommande.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				listModel.removeAllElements();
+				prix=0;
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+				
+			}
+		});
+		btnAnnulerLaCommande.setIcon(new ImageIcon("Ressources/cancel50.png"));
 		btnAnnulerLaCommande.setFont(new Font("Tahoma", Font.BOLD, 18));
 		btnAnnulerLaCommande.setBounds(1063, 766, 316, 90);
 		contentPane.add(btnAnnulerLaCommande);
 		
+		JButton btnSupprProduit = new JButton("SUPPRIMER PRODUIT");
+		btnSupprProduit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				listModel.removeAllElements();
+				prix=0;
+				String s=String.valueOf(prix);
+				lblPrixTot.setText(s);
+				
+			}
+		});
+		btnSupprProduit.setIcon(new ImageIcon("Ressources/cancel50.png"));
+		btnSupprProduit.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnSupprProduit.setBounds(1063, 866, 316, 90);
+		contentPane.add(btnSupprProduit);
+		
 		JButton btn_Param = new JButton("parametres");
-		btn_Param.setIcon(new ImageIcon("E:\\2018\\param50.png"));
+		btn_Param.setIcon(new ImageIcon("Ressources/param50.png"));
 		btn_Param.setBounds(360, 971, 234, 69);
 		contentPane.add(btn_Param);
 		
 		JLabel lbllogo = new JLabel("");
-		lbllogo.setIcon(new ImageIcon("E:\\2018\\speedy_burger1.jpg"));
+		lbllogo.setIcon(new ImageIcon("Ressources/logo.png"));
 		lbllogo.setBounds(617, 766, 440, 260);
 		contentPane.add(lbllogo);
 		
@@ -513,6 +839,13 @@ public class Commande extends JFrame {
 		contentPane.add(list);
 		
 		list.setModel(listModel);
+		
+		JLabel lblPrixTotal = new JLabel("Prix Total :");
+		lblPrixTotal.setBounds(1586, 889, 77, 22);
+		contentPane.add(lblPrixTotal);
+		
+		
+		
 		
 		
 		

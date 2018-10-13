@@ -9,4 +9,6 @@ public class Salade extends Produit {
 		// TODO Auto-generated constructor stub
 	}
 
+   
+
 }

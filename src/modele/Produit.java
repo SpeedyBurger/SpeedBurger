@@ -4,13 +4,14 @@ import java.util.ArrayList;
 
 public class Produit {
 
-	protected String nom;
+  protected String nom;
 
-	protected int prix;
+  protected int prix;
 
-	protected int id;
+  protected int id;
 
-	public String getNom() {
+
+  public String getNom() {
 		return nom;
 	}
 
@@ -34,16 +35,18 @@ public class Produit {
 		this.id = id;
 	}
 
-	public void AfficherNom() {
-	}
+public void AfficherNom() {
+  }
 
-	public void AfficherPrix() {
-	}
+  public void AfficherPrix() {
+  }
 
-	public Produit(String nom, int prix, int id) {
-		this.nom = nom;
-		this.prix = prix;
-		this.id = id;
-	}
+public Produit(String nom, int prix, int id) {
+	this.nom = nom;
+	this.prix = prix;
+	this.id = id;
+}
+  
+  
 
 }
