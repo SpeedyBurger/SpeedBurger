@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 14 oct. 2018 à 00:50
+-- Généré le :  Dim 14 oct. 2018 à 22:49
 -- Version du serveur :  5.7.21
 -- Version de PHP :  5.6.35
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `produit` (
   `typeProduit` varchar(50) NOT NULL,
   `Taille` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `produit`
@@ -92,7 +92,27 @@ INSERT INTO `produit` (`id`, `nom`, `prix`, `typeProduit`, `Taille`) VALUES
 (47, 'Sauce Orientale', 0, 'sauce', 'Normal'),
 (48, 'Sauce Hot Salsa', 0, 'sauce', 'Normal'),
 (49, 'Sauce Aigre Douce', 0, 'sauce', 'Normal'),
-(50, 'Menu Hamburger', 5, 'menu', 'Normal');
+(50, 'Menu Hamburger', 2.5, 'menu', 'Normal'),
+(51, 'Menu Hamburger XL', 3.5, 'menu', 'Grand'),
+(52, 'Menu Fast Burger', 2.5, 'menu', 'Normal'),
+(53, 'Menu Fast Burger XL', 3.5, 'menu', 'Grand'),
+(54, 'Menu Speedy Burger', 2.5, 'menu', 'Normal'),
+(55, 'Menu Speedy Burger XL', 3.5, 'menu', 'Grand'),
+(56, 'Menu Bacon Burger', 2.5, 'menu', 'Normal'),
+(57, 'Menu Bacon Burger XL', 3.5, 'menu', 'Grand'),
+(58, 'Menu Fish Speed', 2.5, 'menu', 'Normal'),
+(59, 'Menu Fish Speed XL', 3.5, 'menu', 'Grand'),
+(60, 'Menu Cléopatre', 2.5, 'menu', 'Normal'),
+(61, 'Menu Cléopatre XL', 3.5, 'menu', 'Grand'),
+(62, 'Menu Chicken Stick', 2.5, 'menu', 'Normal'),
+(63, 'Menu Chicken Stick XL', 3.5, 'menu', 'Grand'),
+(64, 'Menu Chicken Run', 2.5, 'menu', 'Normal'),
+(65, 'Menu Chicken Run XL', 3.5, 'menu', 'Normal'),
+(66, 'Menu Hamburger Enfant', 2, 'menu', 'Petit'),
+(67, 'Hamburger', 2, 'sandwitch', 'Petit'),
+(68, 'Menu Chicken Stick x4 Enfant', 2, 'menu', 'Petit'),
+(69, 'Menu Chicken Run Enfant', 2, 'menu', 'Petit'),
+(70, 'ChickenRun', 2, 'sandwitch', 'Petit');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
