@@ -55,6 +55,10 @@ public class Commande extends JFrame {
 	public double prix;
 	public int currentIndex;
 	public String currentProd;
+	
+	public static void setMenuPressed(int pMenuPressed) {
+		MenuPressed = pMenuPressed;
+	}
 
 	/**
 	 * Launch the application.
@@ -95,30 +99,34 @@ public class Commande extends JFrame {
 			}
 
 			if (pProduit.getClass().getName().equals("modele.Boisson")) {
-                labelText = "<html>" + nom + " - Taille " + ((Boisson) pProduit).getTaille() + " - Nb : " + quantite;
-            } else if (pProduit.getClass().getName().equals("modele.Frite")) {
-                labelText = "<html>" + nom + " - Taille " + ((Frite) pProduit).getTaille() + " - Nb : " + quantite;
-            } else if (pProduit.getClass().getName().equals("modele.Sandwich")) {
-                labelText = "<html>" + nom + " - Taille " + ((Sandwich) pProduit).getTaille() + " - Nb : " + quantite;
-            } else if (pProduit.getClass().getName().equals("modele.Menu")) {
-                List<Produit> lesproduitsMenu = ((Menu) pProduit).getListeProduit();
-                String txtProduits = "";
-                for (Produit unProduit : lesproduitsMenu) {
-                    if (unProduit.getClass().getName().equals("modele.Boisson")) {
-                        txtProduits += "<br> - " + unProduit.getNom() + " - Taille " + ((Boisson) unProduit).getTaille();
-                    } else if (unProduit.getClass().getName().equals("modele.Frite")) {
-                        txtProduits += "<br> - " + unProduit.getNom() + " - Taille " + ((Frite) unProduit).getTaille();
-                    } else if (unProduit.getClass().getName().equals("modele.Sandwich")) {
-                        txtProduits += "<br> - " + unProduit.getNom() + " - Taille " + ((Sandwich) unProduit).getTaille();
-                    } else {
-                        txtProduits += "<br> - " + unProduit.getNom();
-                    }
-                    
-                }
-                labelText = "<html><body style='margin-top: 15px;margin-bottom: 15px;'>" + nom  + txtProduits;
-            } else {
-                labelText = "<html>" + nom + " - Nb  : " + quantite;
-            }
+				labelText = "<html>" + nom + " - Taille " + ((Boisson) pProduit).getTaille() + " - Nb : " + quantite;
+			} else if (pProduit.getClass().getName().equals("modele.Frite")) {
+				labelText = "<html>" + nom + " - Taille " + ((Frite) pProduit).getTaille() + " - Nb : " + quantite;
+			} else if (pProduit.getClass().getName().equals("modele.Sandwich")) {
+				labelText = "<html>" + nom + " - Taille " + ((Sandwich) pProduit).getTaille() + " - Nb : " + quantite;
+			} else if (pProduit.getClass().getName().equals("modele.Menu")) {
+				List<Produit> lesproduitsMenu = ((Menu) pProduit).getListeProduit();
+				String txtProduits = "";
+				for (Produit unProduit : lesproduitsMenu) {
+					if (unProduit.getClass().getName().equals("modele.Boisson")) {
+						txtProduits += "<br> - " + unProduit.getNom() + " - Taille "
+								+ ((Boisson) unProduit).getTaille();
+					} else if (unProduit.getClass().getName().equals("modele.Frite")) {
+						txtProduits += "<br> - " + unProduit.getNom() + " - Taille " + ((Frite) unProduit).getTaille();
+					} else if (unProduit.getClass().getName().equals("modele.Sandwich")) {
+						txtProduits += "<br> - " + unProduit.getNom() + " - Taille "
+								+ ((Sandwich) unProduit).getTaille();
+					} else {
+						txtProduits += "<br> - " + unProduit.getNom();
+					}
+
+					// verifMenu(pProduit);
+
+				}
+				labelText = "<html><body style='margin-top: 15px;margin-bottom: 15px;'>" + nom + txtProduits;
+			} else {
+				labelText = "<html>" + nom + " - Nb  : " + quantite;
+			}
 
 			setText(labelText);
 
@@ -128,8 +136,6 @@ public class Commande extends JFrame {
 		}
 
 	}
-
-
 
 	/**
 	 * Create the frame.
@@ -668,7 +674,7 @@ public class Commande extends JFrame {
 					if (verifMenu(currentMenu, "modele.Boisson") == 0) {
 						String pTailleMenu = ((Menu) currentMenu).getTaille();
 						Produit leproduit = null;
-						
+
 						if (pTailleMenu.equals("Normal")) {
 							leproduit = lesProduits.get(0);
 						} else if (pTailleMenu.equals("Grand")) {
@@ -676,10 +682,13 @@ public class Commande extends JFrame {
 						}
 						((Menu) currentMenu).addProduit(leproduit);
 						System.out.println(((Menu) currentMenu).getListeProduit());
+						
+						verifMenuComplet(currentMenu);
+					} else {
+						verifMenuComplet(currentMenu);
 					}
-					MenuPressed = 0;
 
-				}
+				} 
 
 			}
 		});
@@ -687,41 +696,45 @@ public class Commande extends JFrame {
 		btnfanta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (MenuPressed == 0) {
-				Produit leproduit = null;
-
-				if (boutonPetitPressed == 1) {
-					leproduit = lesProduits.get(3);
-					prix += leproduit.getPrix();
-					String s = String.valueOf(prix);
-					lblPrixTot.setText(s);
-				} else if (boutonMoyenPressed == 1) {
-					leproduit = lesProduits.get(4);
-					prix += leproduit.getPrix();
-					String s = String.valueOf(prix);
-					lblPrixTot.setText(s);
-				} else if (boutonGrandPressed == 1) {
-					leproduit = lesProduits.get(5);
-					prix += leproduit.getPrix();
-					String s = String.valueOf(prix);
-					lblPrixTot.setText(s);
-				}
-				addProduitInCommande(leproduit, Lacommande, listModel);
-				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
-			} else {
-				if (verifMenu(currentMenu, "modele.Boisson") == 0) {
-					String pTailleMenu = ((Menu) currentMenu).getTaille();
 					Produit leproduit = null;
-					System.out.println(pTailleMenu);
-					if (pTailleMenu.equals("Normal")) {
-						leproduit = lesProduits.get(4);
-					} else if (pTailleMenu.equals("Grand")) {
-						leproduit = lesProduits.get(5);
-					}
-					((Menu) currentMenu).addProduit(leproduit);
-					System.out.println(((Menu) currentMenu).getListeProduit());
-				}
 
-			}
+					if (boutonPetitPressed == 1) {
+						leproduit = lesProduits.get(3);
+						prix += leproduit.getPrix();
+						String s = String.valueOf(prix);
+						lblPrixTot.setText(s);
+					} else if (boutonMoyenPressed == 1) {
+						leproduit = lesProduits.get(4);
+						prix += leproduit.getPrix();
+						String s = String.valueOf(prix);
+						lblPrixTot.setText(s);
+					} else if (boutonGrandPressed == 1) {
+						leproduit = lesProduits.get(5);
+						prix += leproduit.getPrix();
+						String s = String.valueOf(prix);
+						lblPrixTot.setText(s);
+					}
+					addProduitInCommande(leproduit, Lacommande, listModel);
+					changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
+				} else {
+					if (verifMenu(currentMenu, "modele.Boisson") == 0) {
+						String pTailleMenu = ((Menu) currentMenu).getTaille();
+						Produit leproduit = null;
+						System.out.println(pTailleMenu);
+						if (pTailleMenu.equals("Normal")) {
+							leproduit = lesProduits.get(4);
+						} else if (pTailleMenu.equals("Grand")) {
+							leproduit = lesProduits.get(5);
+						}
+						((Menu) currentMenu).addProduit(leproduit);
+						System.out.println(((Menu) currentMenu).getListeProduit());
+						
+						verifMenuComplet(currentMenu);
+					} else {
+						verifMenuComplet(currentMenu);
+					}
+
+				}
 
 			}
 		});
@@ -729,31 +742,31 @@ public class Commande extends JFrame {
 		btnSprite.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (MenuPressed == 0) {
-				Produit leproduit = null;
+					Produit leproduit = null;
 
-				if (boutonPetitPressed == 1) {
-					leproduit = lesProduits.get(6);
-					prix += leproduit.getPrix();
-					String s = String.valueOf(prix);
-					lblPrixTot.setText(s);
-				} else if (boutonMoyenPressed == 1) {
-					leproduit = lesProduits.get(7);
-					prix += leproduit.getPrix();
-					String s = String.valueOf(prix);
-					lblPrixTot.setText(s);
-				} else if (boutonGrandPressed == 1) {
-					leproduit = lesProduits.get(8);
-					prix += leproduit.getPrix();
-					String s = String.valueOf(prix);
-					lblPrixTot.setText(s);
-				}
-				addProduitInCommande(leproduit, Lacommande, listModel);
-				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
+					if (boutonPetitPressed == 1) {
+						leproduit = lesProduits.get(6);
+						prix += leproduit.getPrix();
+						String s = String.valueOf(prix);
+						lblPrixTot.setText(s);
+					} else if (boutonMoyenPressed == 1) {
+						leproduit = lesProduits.get(7);
+						prix += leproduit.getPrix();
+						String s = String.valueOf(prix);
+						lblPrixTot.setText(s);
+					} else if (boutonGrandPressed == 1) {
+						leproduit = lesProduits.get(8);
+						prix += leproduit.getPrix();
+						String s = String.valueOf(prix);
+						lblPrixTot.setText(s);
+					}
+					addProduitInCommande(leproduit, Lacommande, listModel);
+					changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 				} else {
 					if (verifMenu(currentMenu, "modele.Boisson") == 0) {
 						String pTailleMenu = ((Menu) currentMenu).getTaille();
 						Produit leproduit = null;
-						
+
 						if (pTailleMenu.equals("Normal")) {
 							leproduit = lesProduits.get(7);
 						} else if (pTailleMenu.equals("Grand")) {
@@ -761,6 +774,9 @@ public class Commande extends JFrame {
 						}
 						((Menu) currentMenu).addProduit(leproduit);
 						System.out.println(((Menu) currentMenu).getListeProduit());
+						verifMenuComplet(currentMenu);
+					} else {
+						verifMenuComplet(currentMenu);
 					}
 
 				}
@@ -771,41 +787,44 @@ public class Commande extends JFrame {
 		btneau.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (MenuPressed == 0) {
-				Produit leproduit = null;
-
-				if (boutonPetitPressed == 1) {
-					leproduit = lesProduits.get(9);
-					prix += leproduit.getPrix();
-					String s = String.valueOf(prix);
-					lblPrixTot.setText(s);
-				} else if (boutonMoyenPressed == 1) {
-					leproduit = lesProduits.get(10);
-					prix += leproduit.getPrix();
-					String s = String.valueOf(prix);
-					lblPrixTot.setText(s);
-				} else if (boutonGrandPressed == 1) {
-					leproduit = lesProduits.get(11);
-					prix += leproduit.getPrix();
-					String s = String.valueOf(prix);
-					lblPrixTot.setText(s);
-				}
-				addProduitInCommande(leproduit, Lacommande, listModel);
-				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
-			} else {
-				if (verifMenu(currentMenu, "modele.Boisson") == 0) {
-					String pTailleMenu = ((Menu) currentMenu).getTaille();
 					Produit leproduit = null;
-					
-					if (pTailleMenu.equals("Normal")) {
-						leproduit = lesProduits.get(10);
-					} else if (pTailleMenu.equals("Grand")) {
-						leproduit = lesProduits.get(11);
-					}
-					((Menu) currentMenu).addProduit(leproduit);
-					System.out.println(((Menu) currentMenu).getListeProduit());
-				}
 
-			}
+					if (boutonPetitPressed == 1) {
+						leproduit = lesProduits.get(9);
+						prix += leproduit.getPrix();
+						String s = String.valueOf(prix);
+						lblPrixTot.setText(s);
+					} else if (boutonMoyenPressed == 1) {
+						leproduit = lesProduits.get(10);
+						prix += leproduit.getPrix();
+						String s = String.valueOf(prix);
+						lblPrixTot.setText(s);
+					} else if (boutonGrandPressed == 1) {
+						leproduit = lesProduits.get(11);
+						prix += leproduit.getPrix();
+						String s = String.valueOf(prix);
+						lblPrixTot.setText(s);
+					}
+					addProduitInCommande(leproduit, Lacommande, listModel);
+					changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
+				} else {
+					if (verifMenu(currentMenu, "modele.Boisson") == 0) {
+						String pTailleMenu = ((Menu) currentMenu).getTaille();
+						Produit leproduit = null;
+
+						if (pTailleMenu.equals("Normal")) {
+							leproduit = lesProduits.get(10);
+						} else if (pTailleMenu.equals("Grand")) {
+							leproduit = lesProduits.get(11);
+						}
+						((Menu) currentMenu).addProduit(leproduit);
+						System.out.println(((Menu) currentMenu).getListeProduit());
+						verifMenuComplet(currentMenu);
+					} else {
+						verifMenuComplet(currentMenu);
+					}
+
+				}
 
 			}
 		});
@@ -813,31 +832,31 @@ public class Commande extends JFrame {
 		btnbiere.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (MenuPressed == 0) {
-				Produit leproduit = null;
+					Produit leproduit = null;
 
-				if (boutonPetitPressed == 1) {
-					leproduit = lesProduits.get(12);
-					prix += leproduit.getPrix();
-					String s = String.valueOf(prix);
-					lblPrixTot.setText(s);
-				} else if (boutonMoyenPressed == 1) {
-					leproduit = lesProduits.get(13);
-					prix += leproduit.getPrix();
-					String s = String.valueOf(prix);
-					lblPrixTot.setText(s);
-				} else if (boutonGrandPressed == 1) {
-					leproduit = lesProduits.get(14);
-					prix += leproduit.getPrix();
-					String s = String.valueOf(prix);
-					lblPrixTot.setText(s);
-				}
-				addProduitInCommande(leproduit, Lacommande, listModel);
-				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
+					if (boutonPetitPressed == 1) {
+						leproduit = lesProduits.get(12);
+						prix += leproduit.getPrix();
+						String s = String.valueOf(prix);
+						lblPrixTot.setText(s);
+					} else if (boutonMoyenPressed == 1) {
+						leproduit = lesProduits.get(13);
+						prix += leproduit.getPrix();
+						String s = String.valueOf(prix);
+						lblPrixTot.setText(s);
+					} else if (boutonGrandPressed == 1) {
+						leproduit = lesProduits.get(14);
+						prix += leproduit.getPrix();
+						String s = String.valueOf(prix);
+						lblPrixTot.setText(s);
+					}
+					addProduitInCommande(leproduit, Lacommande, listModel);
+					changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 				} else {
 					if (verifMenu(currentMenu, "modele.Boisson") == 0) {
 						String pTailleMenu = ((Menu) currentMenu).getTaille();
 						Produit leproduit = null;
-						
+
 						if (pTailleMenu.equals("Normal")) {
 							leproduit = lesProduits.get(13);
 						} else if (pTailleMenu.equals("Grand")) {
@@ -845,6 +864,9 @@ public class Commande extends JFrame {
 						}
 						((Menu) currentMenu).addProduit(leproduit);
 						System.out.println(((Menu) currentMenu).getListeProduit());
+						verifMenuComplet(currentMenu);
+					} else {
+						verifMenuComplet(currentMenu);
 					}
 
 				}
@@ -1359,40 +1381,41 @@ public class Commande extends JFrame {
 
 			}
 		});
-		
+
 		btnXl.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				MenuXLPressed=1;
+				MenuXLPressed = 1;
 				btnXl.setBackground(Color.GREEN);
-				
+
 			}
 		});
 
 		btnMhamburger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				if (MenuPressed == 0) {
 
 					Produit leproduit = null;
 					Produit lesandwich = null;
 					Produit lafrite = null;
 					Menu unMenu = null;
-					
-					if (MenuXLPressed==1) {
+
+					if (MenuXLPressed == 1) {
 						leproduit = (Menu) lesProduits.get(50);
 						lesandwich = lesProduits.get(16);
 						lafrite = lesProduits.get(30);
-						
-						MenuXLPressed=0;
+
+						MenuXLPressed = 0;
 						btnXl.setBackground(Color.GRAY);
-					}else {
+					} else {
 						leproduit = (Menu) lesProduits.get(49);
 						lesandwich = lesProduits.get(16);
 						lafrite = lesProduits.get(29);
 					}
-					
-					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu", ((Menu) leproduit).getTaille());
-					
+
+					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu",
+							((Menu) leproduit).getTaille());
+
 					prix += unMenu.getPrix();
 					String s = String.valueOf(prix);
 					lblPrixTot.setText(s);
@@ -1402,38 +1425,39 @@ public class Commande extends JFrame {
 
 					MenuPressed = 1;
 					currentMenu = unMenu;
-					
+
 					((Menu) currentMenu).addProduit(lesandwich);
 					((Menu) currentMenu).addProduit(lafrite);
 				}
 			}
 		});
-		
+
 		btnMfastburger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				if (MenuPressed == 0) {
 
 					Produit leproduit = null;
 					Produit lesandwich = null;
 					Produit lafrite = null;
 					Menu unMenu = null;
-					
-					if (MenuXLPressed==1) {
+
+					if (MenuXLPressed == 1) {
 						leproduit = (Menu) lesProduits.get(52);
 						lesandwich = lesProduits.get(17);
 						lafrite = lesProduits.get(30);
-						
-						MenuXLPressed=0;
+
+						MenuXLPressed = 0;
 						btnXl.setBackground(Color.GRAY);
-					}else {
+					} else {
 						leproduit = (Menu) lesProduits.get(51);
 						lesandwich = lesProduits.get(17);
 						lafrite = lesProduits.get(29);
 					}
-					
-					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu", ((Menu) leproduit).getTaille());
-					
+
+					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu",
+							((Menu) leproduit).getTaille());
+
 					prix += unMenu.getPrix();
 					String s = String.valueOf(prix);
 					lblPrixTot.setText(s);
@@ -1443,38 +1467,39 @@ public class Commande extends JFrame {
 
 					MenuPressed = 1;
 					currentMenu = unMenu;
-					
+
 					((Menu) currentMenu).addProduit(lesandwich);
 					((Menu) currentMenu).addProduit(lafrite);
 				}
 			}
 		});
-		
+
 		btnMSpeedyburger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				if (MenuPressed == 0) {
 
 					Produit leproduit = null;
 					Produit lesandwich = null;
 					Produit lafrite = null;
 					Menu unMenu = null;
-					
-					if (MenuXLPressed==1) {
+
+					if (MenuXLPressed == 1) {
 						leproduit = (Menu) lesProduits.get(54);
 						lesandwich = lesProduits.get(18);
 						lafrite = lesProduits.get(30);
-						
-						MenuXLPressed=0;
+
+						MenuXLPressed = 0;
 						btnXl.setBackground(Color.GRAY);
-					}else {
+					} else {
 						leproduit = (Menu) lesProduits.get(53);
 						lesandwich = lesProduits.get(18);
 						lafrite = lesProduits.get(29);
 					}
-					
-					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu", ((Menu) leproduit).getTaille());
-					
+
+					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu",
+							((Menu) leproduit).getTaille());
+
 					prix += unMenu.getPrix();
 					String s = String.valueOf(prix);
 					lblPrixTot.setText(s);
@@ -1484,38 +1509,39 @@ public class Commande extends JFrame {
 
 					MenuPressed = 1;
 					currentMenu = unMenu;
-					
+
 					((Menu) currentMenu).addProduit(lesandwich);
 					((Menu) currentMenu).addProduit(lafrite);
 				}
 			}
 		});
-		
+
 		btnMbaconburger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				if (MenuPressed == 0) {
 
 					Produit leproduit = null;
 					Produit lesandwich = null;
 					Produit lafrite = null;
 					Menu unMenu = null;
-					
-					if (MenuXLPressed==1) {
+
+					if (MenuXLPressed == 1) {
 						leproduit = (Menu) lesProduits.get(56);
 						lesandwich = lesProduits.get(19);
 						lafrite = lesProduits.get(30);
-						
-						MenuXLPressed=0;
+
+						MenuXLPressed = 0;
 						btnXl.setBackground(Color.GRAY);
-					}else {
+					} else {
 						leproduit = (Menu) lesProduits.get(55);
 						lesandwich = lesProduits.get(19);
 						lafrite = lesProduits.get(29);
 					}
-					
-					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu", ((Menu) leproduit).getTaille());
-					
+
+					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu",
+							((Menu) leproduit).getTaille());
+
 					prix += unMenu.getPrix();
 					String s = String.valueOf(prix);
 					lblPrixTot.setText(s);
@@ -1525,38 +1551,39 @@ public class Commande extends JFrame {
 
 					MenuPressed = 1;
 					currentMenu = unMenu;
-					
+
 					((Menu) currentMenu).addProduit(lesandwich);
 					((Menu) currentMenu).addProduit(lafrite);
 				}
 			}
 		});
-		
+
 		btnMchickenburger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				if (MenuPressed == 0) {
 
 					Produit leproduit = null;
 					Produit lesandwich = null;
 					Produit lafrite = null;
 					Menu unMenu = null;
-					
-					if (MenuXLPressed==1) {
+
+					if (MenuXLPressed == 1) {
 						leproduit = (Menu) lesProduits.get(64);
 						lesandwich = lesProduits.get(20);
 						lafrite = lesProduits.get(30);
-						
-						MenuXLPressed=0;
+
+						MenuXLPressed = 0;
 						btnXl.setBackground(Color.GRAY);
-					}else {
+					} else {
 						leproduit = (Menu) lesProduits.get(63);
 						lesandwich = lesProduits.get(20);
 						lafrite = lesProduits.get(29);
 					}
-					
-					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu", ((Menu) leproduit).getTaille());
-					
+
+					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu",
+							((Menu) leproduit).getTaille());
+
 					prix += unMenu.getPrix();
 					String s = String.valueOf(prix);
 					lblPrixTot.setText(s);
@@ -1566,38 +1593,39 @@ public class Commande extends JFrame {
 
 					MenuPressed = 1;
 					currentMenu = unMenu;
-					
+
 					((Menu) currentMenu).addProduit(lesandwich);
 					((Menu) currentMenu).addProduit(lafrite);
 				}
 			}
 		});
-		
+
 		btnMfishspeed.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				if (MenuPressed == 0) {
 
 					Produit leproduit = null;
 					Produit lesandwich = null;
 					Produit lafrite = null;
 					Menu unMenu = null;
-					
-					if (MenuXLPressed==1) {
+
+					if (MenuXLPressed == 1) {
 						leproduit = (Menu) lesProduits.get(58);
 						lesandwich = lesProduits.get(21);
 						lafrite = lesProduits.get(30);
-						
-						MenuXLPressed=0;
+
+						MenuXLPressed = 0;
 						btnXl.setBackground(Color.GRAY);
-					}else {
+					} else {
 						leproduit = (Menu) lesProduits.get(57);
 						lesandwich = lesProduits.get(21);
 						lafrite = lesProduits.get(29);
 					}
-					
-					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu", ((Menu) leproduit).getTaille());
-					
+
+					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu",
+							((Menu) leproduit).getTaille());
+
 					prix += unMenu.getPrix();
 					String s = String.valueOf(prix);
 					lblPrixTot.setText(s);
@@ -1607,38 +1635,39 @@ public class Commande extends JFrame {
 
 					MenuPressed = 1;
 					currentMenu = unMenu;
-					
+
 					((Menu) currentMenu).addProduit(lesandwich);
 					((Menu) currentMenu).addProduit(lafrite);
 				}
 			}
 		});
-		
+
 		btnMcleopatre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				if (MenuPressed == 0) {
 
 					Produit leproduit = null;
 					Produit lesandwich = null;
 					Produit lafrite = null;
 					Menu unMenu = null;
-					
-					if (MenuXLPressed==1) {
+
+					if (MenuXLPressed == 1) {
 						leproduit = (Menu) lesProduits.get(60);
 						lesandwich = lesProduits.get(24);
 						lafrite = lesProduits.get(30);
-						
-						MenuXLPressed=0;
+
+						MenuXLPressed = 0;
 						btnXl.setBackground(Color.GRAY);
-					}else {
+					} else {
 						leproduit = (Menu) lesProduits.get(59);
 						lesandwich = lesProduits.get(24);
 						lafrite = lesProduits.get(29);
 					}
-					
-					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu", ((Menu) leproduit).getTaille());
-					
+
+					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu",
+							((Menu) leproduit).getTaille());
+
 					prix += unMenu.getPrix();
 					String s = String.valueOf(prix);
 					lblPrixTot.setText(s);
@@ -1648,38 +1677,39 @@ public class Commande extends JFrame {
 
 					MenuPressed = 1;
 					currentMenu = unMenu;
-					
+
 					((Menu) currentMenu).addProduit(lesandwich);
 					((Menu) currentMenu).addProduit(lafrite);
 				}
 			}
 		});
-		
+
 		btnMchickenstick.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				if (MenuPressed == 0) {
 
 					Produit leproduit = null;
 					Produit lesandwich = null;
 					Produit lafrite = null;
 					Menu unMenu = null;
-					
-					if (MenuXLPressed==1) {
+
+					if (MenuXLPressed == 1) {
 						leproduit = (Menu) lesProduits.get(62);
 						lesandwich = lesProduits.get(23);
 						lafrite = lesProduits.get(30);
-						
-						MenuXLPressed=0;
+
+						MenuXLPressed = 0;
 						btnXl.setBackground(Color.GRAY);
-					}else {
+					} else {
 						leproduit = (Menu) lesProduits.get(61);
 						lesandwich = lesProduits.get(22);
 						lafrite = lesProduits.get(29);
 					}
-					
-					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu", ((Menu) leproduit).getTaille());
-					
+
+					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu",
+							((Menu) leproduit).getTaille());
+
 					prix += unMenu.getPrix();
 					String s = String.valueOf(prix);
 					lblPrixTot.setText(s);
@@ -1689,7 +1719,7 @@ public class Commande extends JFrame {
 
 					MenuPressed = 1;
 					currentMenu = unMenu;
-					
+
 					((Menu) currentMenu).addProduit(lesandwich);
 					((Menu) currentMenu).addProduit(lafrite);
 				}
@@ -1767,7 +1797,8 @@ public class Commande extends JFrame {
 
 	public static int verifMenu(Produit menu, String type) {
 		int reponse = 0;
-		
+
+
 		List<Produit> listeProduitsMenu = ((Menu) menu).getListeProduit();
 		for (Produit pProduit : listeProduitsMenu) {
 			if (pProduit.getClass().getName().equals(type)) {
@@ -1775,6 +1806,32 @@ public class Commande extends JFrame {
 			}
 		}
 		return reponse;
+	}
+	
+	public static void verifMenuComplet(Produit menu) {
+
+		ArrayList<String> menuAdultes = new ArrayList<String>();
+		menuAdultes.add("modele.Boisson");
+		menuAdultes.add("modele.Frite");
+		menuAdultes.add("modele.Sandwich");
+		
+		
+		ArrayList<String> menuEnfant = menuAdultes;
+		menuEnfant.add("");
+		
+		System.out.println(menuAdultes.size());
+		
+		List<Produit> listeProduitsMenu = ((Menu) menu).getListeProduit();
+		for (Produit pProduit : listeProduitsMenu) {
+			if (menuAdultes.contains(pProduit.getClass().getName())) {
+				menuAdultes.remove(pProduit.getClass().getName());
+			}
+		}
+
+		if (menuAdultes.size() == 1) {
+			currentMenu = null;
+			setMenuPressed(0);
+		}
 	}
 
 }
