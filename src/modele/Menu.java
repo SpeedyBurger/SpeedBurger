@@ -55,11 +55,12 @@ public class Menu extends Produit {
 		this.listeProduit.remove(pProduit);
 	}
 
-	public Menu(String nom, double prix, int id, String pTypeProduit) {
+	public Menu(String nom, double prix, int id, String pTypeProduit, String taille) {
 		super(nom, prix, id, pTypeProduit);
 		this.nom = nom;
 		this.prix = prix;
 		this.id = id;
+		this.taille = taille;
 	}
 
 }

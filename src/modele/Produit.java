@@ -86,7 +86,7 @@ public class Produit {
 					
 
 					if (ProduitType.equals("menu")) {
-						new Menu(ProduitNom, ProduitPrix, ProduitId, ProduitType);
+						new Menu(ProduitNom, ProduitPrix, ProduitId, ProduitType, ProduitTaille);
 					} else if (ProduitType.equals("sandwitch")) {
 						new Sandwich(ProduitNom, ProduitPrix, ProduitId, ProduitType, ProduitTaille);
 					} else if (ProduitType.equals("frite")) {

@@ -49,6 +49,8 @@ public class Commande extends JFrame {
 	private static int boutonPetitPressed = 0;
 	private static int boutonMoyenPressed = 1;
 	private static int boutonGrandPressed = 0;
+	private static int MenuPressed = 0;
+	private static Produit currentMenu = null;
 
 	/**
 	 * Launch the application.
@@ -96,11 +98,11 @@ public class Commande extends JFrame {
 				labelText = "<html>" + nom + " - Taille " + ((Sandwich) pProduit).getTaille() + " - Nb : " + quantite;
 			} else if (pProduit.getClass().getName().equals("modele.Menu")) {
 				List<Produit> lesproduitsMenu = ((Menu) pProduit).getListeProduit();
-				String txtProduits;
+				String txtProduits = "";
 				for (Produit unProduit : lesproduitsMenu) {
-					txtProduits = "<br>        - " + unProduit.getNom();
+					txtProduits += "<br> - " + unProduit.getNom();
 				}
-				labelText = "<html>" + nom;
+				labelText = "<html><body style='margin-top: 25px;margin-bottom: 25px;'>" + nom  + txtProduits;
 			} else {
 				labelText = "<html>" + nom + " - Nb  : " + quantite;
 			}
@@ -629,26 +631,43 @@ public class Commande extends JFrame {
 
 		btncoca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Produit leproduit = null;
+				if (MenuPressed == 0) {
 
-				if (boutonPetitPressed == 1) {
-					leproduit = lesProduits.get(2);
-					prix += leproduit.getPrix();
-					String s = String.valueOf(prix);
-					lblPrixTot.setText(s);
-				} else if (boutonMoyenPressed == 1) {
-					leproduit = lesProduits.get(0);
-					prix += leproduit.getPrix();
-					String s = String.valueOf(prix);
-					lblPrixTot.setText(s);
-				} else if (boutonGrandPressed == 1) {
-					leproduit = lesProduits.get(1);
-					prix += leproduit.getPrix();
-					String s = String.valueOf(prix);
-					lblPrixTot.setText(s);
+					Produit leproduit = null;
+
+					if (boutonPetitPressed == 1) {
+						leproduit = lesProduits.get(2);
+						prix += leproduit.getPrix();
+						String s = String.valueOf(prix);
+						lblPrixTot.setText(s);
+					} else if (boutonMoyenPressed == 1) {
+						leproduit = lesProduits.get(0);
+						prix += leproduit.getPrix();
+						String s = String.valueOf(prix);
+						lblPrixTot.setText(s);
+					} else if (boutonGrandPressed == 1) {
+						leproduit = lesProduits.get(1);
+						prix += leproduit.getPrix();
+						String s = String.valueOf(prix);
+						lblPrixTot.setText(s);
+					}
+					addProduitInCommande(leproduit, Lacommande, listModel);
+					changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
+				} else {
+					if (verifMenu(currentMenu, "modele.Boisson") == 0) {
+						String pTailleMenu = ((Menu) currentMenu).getTaille();
+						Produit leproduit = null;
+						
+						if (pTailleMenu.equals("Normal")) {
+							leproduit = lesProduits.get(0);
+						} else if (pTailleMenu.equals("Grand")) {
+							leproduit = lesProduits.get(1);
+						}
+						((Menu) currentMenu).addProduit(leproduit);
+						System.out.println(((Menu) currentMenu).getListeProduit());
+					}
+
 				}
-				addProduitInCommande(leproduit, Lacommande, listModel);
-				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 			}
 		});
@@ -1268,14 +1287,20 @@ public class Commande extends JFrame {
 		btnMhamburger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				Produit leproduit = null;
-				leproduit = lesProduits.get(49);
-				prix += leproduit.getPrix();
-				String s = String.valueOf(prix);
-				lblPrixTot.setText(s);
+				if (MenuPressed == 0) {
 
-				addProduitInCommande(leproduit, Lacommande, listModel);
-				changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
+					Produit leproduit = null;
+					leproduit = lesProduits.get(49);
+					prix += leproduit.getPrix();
+					String s = String.valueOf(prix);
+					lblPrixTot.setText(s);
+
+					addProduitInCommande(leproduit, Lacommande, listModel);
+					changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
+
+					MenuPressed = 1;
+					currentMenu = leproduit;
+				}
 			}
 		});
 
@@ -1323,7 +1348,6 @@ public class Commande extends JFrame {
 		} else {
 
 			lacommande2.addProduit(leproduit);
-
 			listModel.addElement(leproduit);
 		}
 	}
@@ -1347,6 +1371,18 @@ public class Commande extends JFrame {
 		buttonActivated.setBackground(Color.GREEN);
 		button1.setBackground(Color.GRAY);
 		button2.setBackground(Color.GRAY);
+	}
+
+	public static int verifMenu(Produit menu, String type) {
+		int reponse = 0;
+		
+		List<Produit> listeProduitsMenu = ((Menu) menu).getListeProduit();
+		for (Produit pProduit : listeProduitsMenu) {
+			if (pProduit.getClass().getName().equals(type)) {
+				reponse = 1; // Il y a déja un élement de ce type, donc on peut pas le rajouter
+			}
+		}
+		return reponse;
 	}
 
 }
