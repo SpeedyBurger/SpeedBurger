@@ -1408,6 +1408,293 @@ public class Commande extends JFrame {
 				}
 			}
 		});
+		
+		btnMfastburger.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				if (MenuPressed == 0) {
+
+					Produit leproduit = null;
+					Produit lesandwich = null;
+					Produit lafrite = null;
+					Menu unMenu = null;
+					
+					if (MenuXLPressed==1) {
+						leproduit = (Menu) lesProduits.get(52);
+						lesandwich = lesProduits.get(17);
+						lafrite = lesProduits.get(30);
+						
+						MenuXLPressed=0;
+						btnXl.setBackground(Color.GRAY);
+					}else {
+						leproduit = (Menu) lesProduits.get(51);
+						lesandwich = lesProduits.get(17);
+						lafrite = lesProduits.get(29);
+					}
+					
+					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu", ((Menu) leproduit).getTaille());
+					
+					prix += unMenu.getPrix();
+					String s = String.valueOf(prix);
+					lblPrixTot.setText(s);
+
+					addProduitInCommande(unMenu, Lacommande, listModel);
+					changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
+
+					MenuPressed = 1;
+					currentMenu = unMenu;
+					
+					((Menu) currentMenu).addProduit(lesandwich);
+					((Menu) currentMenu).addProduit(lafrite);
+				}
+			}
+		});
+		
+		btnMSpeedyburger.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				if (MenuPressed == 0) {
+
+					Produit leproduit = null;
+					Produit lesandwich = null;
+					Produit lafrite = null;
+					Menu unMenu = null;
+					
+					if (MenuXLPressed==1) {
+						leproduit = (Menu) lesProduits.get(54);
+						lesandwich = lesProduits.get(18);
+						lafrite = lesProduits.get(30);
+						
+						MenuXLPressed=0;
+						btnXl.setBackground(Color.GRAY);
+					}else {
+						leproduit = (Menu) lesProduits.get(53);
+						lesandwich = lesProduits.get(18);
+						lafrite = lesProduits.get(29);
+					}
+					
+					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu", ((Menu) leproduit).getTaille());
+					
+					prix += unMenu.getPrix();
+					String s = String.valueOf(prix);
+					lblPrixTot.setText(s);
+
+					addProduitInCommande(unMenu, Lacommande, listModel);
+					changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
+
+					MenuPressed = 1;
+					currentMenu = unMenu;
+					
+					((Menu) currentMenu).addProduit(lesandwich);
+					((Menu) currentMenu).addProduit(lafrite);
+				}
+			}
+		});
+		
+		btnMbaconburger.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				if (MenuPressed == 0) {
+
+					Produit leproduit = null;
+					Produit lesandwich = null;
+					Produit lafrite = null;
+					Menu unMenu = null;
+					
+					if (MenuXLPressed==1) {
+						leproduit = (Menu) lesProduits.get(56);
+						lesandwich = lesProduits.get(19);
+						lafrite = lesProduits.get(30);
+						
+						MenuXLPressed=0;
+						btnXl.setBackground(Color.GRAY);
+					}else {
+						leproduit = (Menu) lesProduits.get(55);
+						lesandwich = lesProduits.get(19);
+						lafrite = lesProduits.get(29);
+					}
+					
+					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu", ((Menu) leproduit).getTaille());
+					
+					prix += unMenu.getPrix();
+					String s = String.valueOf(prix);
+					lblPrixTot.setText(s);
+
+					addProduitInCommande(unMenu, Lacommande, listModel);
+					changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
+
+					MenuPressed = 1;
+					currentMenu = unMenu;
+					
+					((Menu) currentMenu).addProduit(lesandwich);
+					((Menu) currentMenu).addProduit(lafrite);
+				}
+			}
+		});
+		
+		btnMchickenburger.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				if (MenuPressed == 0) {
+
+					Produit leproduit = null;
+					Produit lesandwich = null;
+					Produit lafrite = null;
+					Menu unMenu = null;
+					
+					if (MenuXLPressed==1) {
+						leproduit = (Menu) lesProduits.get(64);
+						lesandwich = lesProduits.get(20);
+						lafrite = lesProduits.get(30);
+						
+						MenuXLPressed=0;
+						btnXl.setBackground(Color.GRAY);
+					}else {
+						leproduit = (Menu) lesProduits.get(63);
+						lesandwich = lesProduits.get(20);
+						lafrite = lesProduits.get(29);
+					}
+					
+					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu", ((Menu) leproduit).getTaille());
+					
+					prix += unMenu.getPrix();
+					String s = String.valueOf(prix);
+					lblPrixTot.setText(s);
+
+					addProduitInCommande(unMenu, Lacommande, listModel);
+					changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
+
+					MenuPressed = 1;
+					currentMenu = unMenu;
+					
+					((Menu) currentMenu).addProduit(lesandwich);
+					((Menu) currentMenu).addProduit(lafrite);
+				}
+			}
+		});
+		
+		btnMfishspeed.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				if (MenuPressed == 0) {
+
+					Produit leproduit = null;
+					Produit lesandwich = null;
+					Produit lafrite = null;
+					Menu unMenu = null;
+					
+					if (MenuXLPressed==1) {
+						leproduit = (Menu) lesProduits.get(58);
+						lesandwich = lesProduits.get(21);
+						lafrite = lesProduits.get(30);
+						
+						MenuXLPressed=0;
+						btnXl.setBackground(Color.GRAY);
+					}else {
+						leproduit = (Menu) lesProduits.get(57);
+						lesandwich = lesProduits.get(21);
+						lafrite = lesProduits.get(29);
+					}
+					
+					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu", ((Menu) leproduit).getTaille());
+					
+					prix += unMenu.getPrix();
+					String s = String.valueOf(prix);
+					lblPrixTot.setText(s);
+
+					addProduitInCommande(unMenu, Lacommande, listModel);
+					changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
+
+					MenuPressed = 1;
+					currentMenu = unMenu;
+					
+					((Menu) currentMenu).addProduit(lesandwich);
+					((Menu) currentMenu).addProduit(lafrite);
+				}
+			}
+		});
+		
+		btnMcleopatre.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				if (MenuPressed == 0) {
+
+					Produit leproduit = null;
+					Produit lesandwich = null;
+					Produit lafrite = null;
+					Menu unMenu = null;
+					
+					if (MenuXLPressed==1) {
+						leproduit = (Menu) lesProduits.get(60);
+						lesandwich = lesProduits.get(24);
+						lafrite = lesProduits.get(30);
+						
+						MenuXLPressed=0;
+						btnXl.setBackground(Color.GRAY);
+					}else {
+						leproduit = (Menu) lesProduits.get(59);
+						lesandwich = lesProduits.get(24);
+						lafrite = lesProduits.get(29);
+					}
+					
+					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu", ((Menu) leproduit).getTaille());
+					
+					prix += unMenu.getPrix();
+					String s = String.valueOf(prix);
+					lblPrixTot.setText(s);
+
+					addProduitInCommande(unMenu, Lacommande, listModel);
+					changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
+
+					MenuPressed = 1;
+					currentMenu = unMenu;
+					
+					((Menu) currentMenu).addProduit(lesandwich);
+					((Menu) currentMenu).addProduit(lafrite);
+				}
+			}
+		});
+		
+		btnMchickenstick.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				if (MenuPressed == 0) {
+
+					Produit leproduit = null;
+					Produit lesandwich = null;
+					Produit lafrite = null;
+					Menu unMenu = null;
+					
+					if (MenuXLPressed==1) {
+						leproduit = (Menu) lesProduits.get(62);
+						lesandwich = lesProduits.get(23);
+						lafrite = lesProduits.get(30);
+						
+						MenuXLPressed=0;
+						btnXl.setBackground(Color.GRAY);
+					}else {
+						leproduit = (Menu) lesProduits.get(61);
+						lesandwich = lesProduits.get(22);
+						lafrite = lesProduits.get(29);
+					}
+					
+					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu", ((Menu) leproduit).getTaille());
+					
+					prix += unMenu.getPrix();
+					String s = String.valueOf(prix);
+					lblPrixTot.setText(s);
+
+					addProduitInCommande(unMenu, Lacommande, listModel);
+					changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
+
+					MenuPressed = 1;
+					currentMenu = unMenu;
+					
+					((Menu) currentMenu).addProduit(lesandwich);
+					((Menu) currentMenu).addProduit(lafrite);
+				}
+			}
+		});
 
 		list.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent event) {
