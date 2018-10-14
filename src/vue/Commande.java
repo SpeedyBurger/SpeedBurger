@@ -113,7 +113,7 @@ public class Commande extends JFrame {
                     }
                     
                 }
-                labelText = "<html><body style='margin-top: 25px;margin-bottom: 25px;'>" + nom  + txtProduits;
+                labelText = "<html><body style='margin-top: 15px;margin-bottom: 15px;'>" + nom  + txtProduits;
             } else {
                 labelText = "<html>" + nom + " - Nb  : " + quantite;
             }
