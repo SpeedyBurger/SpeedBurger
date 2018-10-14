@@ -1,18 +1,15 @@
 package vue;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import javafx.scene.control.ListCell;
 import modele.Boisson;
 import modele.Frite;
 import modele.Menu;
@@ -24,14 +21,10 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.ActionEvent;
-import javax.swing.JRadioButton;
-import javax.swing.JTextArea;
-import javax.swing.ListCellRenderer;
+import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -39,8 +32,6 @@ import javax.swing.JList;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeEvent;
 
 public class Commande extends JFrame {
 
@@ -55,7 +46,6 @@ public class Commande extends JFrame {
 	public double prix;
 	public int currentIndex;
 	public String currentProd;
-	
 
 	/**
 	 * Launch the application.
@@ -620,10 +610,20 @@ public class Commande extends JFrame {
 		lblPrixTotal.setBounds(1586, 889, 77, 22);
 		contentPane.add(lblPrixTotal);
 
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(1429, 65, 449, 811);
+		contentPane.add(scrollPane);
+
 		JList list = new JList(listModel);
-		list.setBounds(1429, 65, 449, 811);
-		contentPane.add(list);
+		scrollPane.setViewportView(list);
 		list.setCellRenderer(new MyListCellRenderer());
+
+		list.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent event) {
+				currentIndex = (list.getSelectedIndex());
+
+			}
+		});
 
 		btn_bPetite.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -679,13 +679,13 @@ public class Commande extends JFrame {
 						}
 						((Menu) currentMenu).addProduit(leproduit);
 						System.out.println(((Menu) currentMenu).getListeProduit());
-						
+
 						verifMenuComplet(currentMenu);
 					} else {
 						verifMenuComplet(currentMenu);
 					}
 
-				} 
+				}
 
 			}
 		});
@@ -725,7 +725,7 @@ public class Commande extends JFrame {
 						}
 						((Menu) currentMenu).addProduit(leproduit);
 						System.out.println(((Menu) currentMenu).getListeProduit());
-						
+
 						verifMenuComplet(currentMenu);
 					} else {
 						verifMenuComplet(currentMenu);
@@ -1723,13 +1723,6 @@ public class Commande extends JFrame {
 			}
 		});
 
-		list.addListSelectionListener(new ListSelectionListener() {
-			public void valueChanged(ListSelectionEvent event) {
-				currentIndex = (list.getSelectedIndex());
-
-			}
-		});
-
 		JButton btnSupprProduit = new JButton("SUPPRIMER PRODUIT");
 		btnSupprProduit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -1795,7 +1788,6 @@ public class Commande extends JFrame {
 	public static int verifMenu(Produit menu, String type) {
 		int reponse = 0;
 
-
 		List<Produit> listeProduitsMenu = ((Menu) menu).getListeProduit();
 		for (Produit pProduit : listeProduitsMenu) {
 			if (pProduit.getClass().getName().equals(type)) {
@@ -1804,20 +1796,17 @@ public class Commande extends JFrame {
 		}
 		return reponse;
 	}
-	
+
 	public static void verifMenuComplet(Produit menu) {
 
 		ArrayList<String> menuAdultes = new ArrayList<String>();
 		menuAdultes.add("modele.Boisson");
 		menuAdultes.add("modele.Frite");
 		menuAdultes.add("modele.Sandwich");
-		
-		
+
 		ArrayList<String> menuEnfant = menuAdultes;
 		menuEnfant.add("");
-		
-		System.out.println(menuAdultes.size());
-		
+
 		List<Produit> listeProduitsMenu = ((Menu) menu).getListeProduit();
 		for (Produit pProduit : listeProduitsMenu) {
 			if (menuAdultes.contains(pProduit.getClass().getName())) {
@@ -1830,5 +1819,4 @@ public class Commande extends JFrame {
 			MenuPressed = 0;
 		}
 	}
-
 }
