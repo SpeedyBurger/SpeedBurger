@@ -675,6 +675,7 @@ public class Commande extends JFrame {
 						((Menu) currentMenu).addProduit(leproduit);
 						System.out.println(((Menu) currentMenu).getListeProduit());
 					}
+					MenuPressed = 0;
 
 				}
 
@@ -1371,12 +1372,19 @@ public class Commande extends JFrame {
 				if (MenuPressed == 0) {
 
 					Produit leproduit = null;
+					Produit lesandwich = null;
+					Produit lafrite = null;
 					if (MenuXLPressed==1) {
 						leproduit = lesProduits.get(50);
+						lesandwich = lesProduits.get(16);
+						lafrite = lesProduits.get(30);
+						
 						MenuXLPressed=0;
 						btnXl.setBackground(Color.GRAY);
 					}else {
 						leproduit = lesProduits.get(49);
+						lesandwich = lesProduits.get(16);
+						lafrite = lesProduits.get(29);
 					}
 					
 					prix += leproduit.getPrix();
@@ -1388,6 +1396,9 @@ public class Commande extends JFrame {
 
 					MenuPressed = 1;
 					currentMenu = leproduit;
+					
+					((Menu) currentMenu).addProduit(lesandwich);
+					((Menu) currentMenu).addProduit(lafrite);
 				}
 			}
 		});
