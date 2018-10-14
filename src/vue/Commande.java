@@ -1356,6 +1356,14 @@ public class Commande extends JFrame {
 
 			}
 		});
+		
+		btnXl.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				MenuXLPressed=1;
+				btnXl.setBackground(Color.GREEN);
+				
+			}
+		});
 
 		btnMhamburger.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -1366,6 +1374,7 @@ public class Commande extends JFrame {
 					if (MenuXLPressed==1) {
 						leproduit = lesProduits.get(50);
 						MenuXLPressed=0;
+						btnXl.setBackground(Color.GRAY);
 					}else {
 						leproduit = lesProduits.get(49);
 					}
