@@ -108,6 +108,8 @@ public class Commande extends JFrame {
                         txtProduits += "<br> - " + unProduit.getNom() + " - Taille " + ((Boisson) unProduit).getTaille();
                     } else if (unProduit.getClass().getName().equals("modele.Frite")) {
                         txtProduits += "<br> - " + unProduit.getNom() + " - Taille " + ((Frite) unProduit).getTaille();
+                    } else if (unProduit.getClass().getName().equals("modele.Sandwich")) {
+                        txtProduits += "<br> - " + unProduit.getNom() + " - Taille " + ((Sandwich) unProduit).getTaille();
                     } else {
                         txtProduits += "<br> - " + unProduit.getNom();
                     }
