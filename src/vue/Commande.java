@@ -1374,28 +1374,32 @@ public class Commande extends JFrame {
 					Produit leproduit = null;
 					Produit lesandwich = null;
 					Produit lafrite = null;
+					Menu unMenu = null;
+					
 					if (MenuXLPressed==1) {
-						leproduit = lesProduits.get(50);
+						leproduit = (Menu) lesProduits.get(50);
 						lesandwich = lesProduits.get(16);
 						lafrite = lesProduits.get(30);
 						
 						MenuXLPressed=0;
 						btnXl.setBackground(Color.GRAY);
 					}else {
-						leproduit = lesProduits.get(49);
+						leproduit = (Menu) lesProduits.get(49);
 						lesandwich = lesProduits.get(16);
 						lafrite = lesProduits.get(29);
 					}
 					
-					prix += leproduit.getPrix();
+					unMenu = new Menu(leproduit.getNom(), leproduit.getPrix(), leproduit.getId(), "menu", ((Menu) leproduit).getTaille());
+					
+					prix += unMenu.getPrix();
 					String s = String.valueOf(prix);
 					lblPrixTot.setText(s);
 
-					addProduitInCommande(leproduit, Lacommande, listModel);
+					addProduitInCommande(unMenu, Lacommande, listModel);
 					changeStateBtnTaille("moyen", bt_bMoyenne, btn_BGrande, btn_bPetite);
 
 					MenuPressed = 1;
-					currentMenu = leproduit;
+					currentMenu = unMenu;
 					
 					((Menu) currentMenu).addProduit(lesandwich);
 					((Menu) currentMenu).addProduit(lafrite);
