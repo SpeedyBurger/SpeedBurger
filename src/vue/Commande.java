@@ -56,9 +56,6 @@ public class Commande extends JFrame {
 	public int currentIndex;
 	public String currentProd;
 	
-	public static void setMenuPressed(int pMenuPressed) {
-		MenuPressed = pMenuPressed;
-	}
 
 	/**
 	 * Launch the application.
@@ -1830,7 +1827,7 @@ public class Commande extends JFrame {
 
 		if (menuAdultes.size() == 1) {
 			currentMenu = null;
-			setMenuPressed(0);
+			MenuPressed = 0;
 		}
 	}
 
